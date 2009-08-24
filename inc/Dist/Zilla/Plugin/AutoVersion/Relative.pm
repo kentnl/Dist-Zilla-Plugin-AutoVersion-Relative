@@ -96,7 +96,7 @@ has day       => ( isa => Int,      ro, default   => 1 );
 has hour      => ( isa => Int,      ro, default   => 0 );
 has minute    => ( isa => Int,      ro, default   => 0 );
 has second    => ( isa => Int,      ro, default   => 0 );
-has time_zone => ( isa => TimeZone, ro, predicate => 'has_time_zone' );
+has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
 
 has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );

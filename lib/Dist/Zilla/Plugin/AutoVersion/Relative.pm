@@ -74,19 +74,21 @@ has format => (
 
 Various Tokens that specify what the relative version is relative to
 
-=head2 year
+=head3 year
 
-=head2 month
+=head3 month
 
-=head2 day
+=head3 day
 
-=head2 minute
+=head3 minute
 
-=head2 second
+=head3 second
 
-=head2 time_zone
+=head3 time_zone
 
 You want this.
+
+Either Olson Format ( L<Olson::Abbreviations ), "Pacific/Auckland" , or merely "+1200" format.
 
 =cut
 
@@ -96,7 +98,7 @@ has day       => ( isa => Int,      ro, default   => 1 );
 has hour      => ( isa => Int,      ro, default   => 0 );
 has minute    => ( isa => Int,      ro, default   => 0 );
 has second    => ( isa => Int,      ro, default   => 0 );
-has time_zone => ( isa => TimeZone, ro, predicate => 'has_time_zone' );
+has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
 
 has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );

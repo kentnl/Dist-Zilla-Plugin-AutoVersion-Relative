@@ -1,5 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Fixed Timezone Coercion.
+          Docu Tweak
+
+0.01000104 2009-08-24 04:05:23 UTC
           First version.
 
