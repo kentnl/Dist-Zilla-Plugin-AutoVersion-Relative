@@ -127,10 +127,18 @@ sub _build_relative {
   my $x    = $self->_current_time->subtract_datetime( $self->_release_time );
   return $x;
 }
+=head1 METHODS
 
+=head2 provide_version
+
+returns the formatted version string to satisfy the roles.
+
+=cut
+
+{ my $av_track = 0;
 sub provide_version {
   my ($self) = @_;
-
+  $av_track++;
   my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
   my $version = $self->fill_in_string(
@@ -142,8 +150,12 @@ sub provide_version {
       cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
       days     => sub { ( ( ( $y * 12 ) + $m ) * 31 ) + $d },
       hours => sub { $h },
-    }
+    },
+    {
+      package => "AutoVersion::_${av_track}_",
+    },
   );
+}
 }
 
 =head1 FORMATTING
