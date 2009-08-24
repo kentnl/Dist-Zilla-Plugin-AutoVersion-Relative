@@ -1,0 +1,96 @@
+NAME
+    Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
+
+VERSION
+    version 0.01000104
+
+SYNOPSIS
+    Like all things, time is relative. This plugin is to allow you to
+    auto-increment versions based on a relative time point.
+
+    It doesn't do it all for you, you can choose, its mostly like
+    Dist::Zilla::Plugin::AutoVersion except there's a few more user-visible
+    entities, and a few more visible options.
+
+  Serving Suggestion
+      [AutoVersion::Relative]
+      major = 1
+      minor = 1
+      year  = 2009 ;  when we did our last major rev
+      month = 08   ;   "           "
+      day   = 23   ;   "           "
+      hour  = 05   ;   "           "
+      minute = 30  ;   "           "
+      second = 00  ;  If you're that picky.
+
+      time_zone = Pacific/Auckland  ;  You really want to set this.
+
+       ; 1.0110012
+      format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
+
+WARNING
+    If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
+    couldn't think of a more sane default. But you're setting that anyway,
+    because if you don't,you be cargo cultin' the bad way
+
+ATTRIBUTES
+  major
+  minor
+  format
+    See "FORMATING"
+
+  DATE ATTRIBUTES
+    Various Tokens that specify what the relative version is relative to
+
+  year
+  month
+  day
+  minute
+  second
+  time_zone
+    You want this.
+
+METHODS
+  provide_version
+    returns the formatted version string to satisfy the roles.
+
+FORMATTING
+    There are a handful of things we inject into the template for you
+
+      # Just to give you an idea, you don't really want to be using this though.
+      {{ $major }}.{{ $minor }}{{ days }}{{ hours }}{{ $relative->seconds }}
+
+  $major
+    The value set for major
+
+  $minor
+    The value set for minor
+
+  $relative
+    A DateTime::Duration object
+
+  cldr($ARG)
+    CLDR for the current time. See "format_cldr" in DateTime
+
+  date()
+    An approximation of the number of days passed since milestone.
+
+    Note that for this approximation, it is assumed all months are 31 days
+    long, and years as such, have 372 days.
+
+    This is purely to make sure numbers don't slip backwards, as its
+    currently too hard to work out the exact number of days passed. Fixes
+    welcome if you want this to respond properly.
+
+  hours()
+    The remainder number of hours elapsed.
+
+AUTHOR
+      Kent Fredric <kentnl@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2009 by Kent Fredric.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

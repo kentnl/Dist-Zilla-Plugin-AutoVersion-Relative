@@ -1,0 +1,15 @@
+Build.PL
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
+t/01-load.t
+t/02-basic.t
+t/fake/dist.pm
+t/release-meta-yaml.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t
