@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 0.01000104
+    version 0.01000119
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to
@@ -42,13 +42,16 @@ ATTRIBUTES
   DATE ATTRIBUTES
     Various Tokens that specify what the relative version is relative to
 
-  year
-  month
-  day
-  minute
-  second
-  time_zone
+   year
+   month
+   day
+   minute
+   second
+   time_zone
     You want this.
+
+    Either Olson Format ( "Auckland" , or merely "+1200" format." in
+    Olson::Abbreviations ), "Pacific
 
 METHODS
   provide_version
@@ -93,4 +96,11 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 174:
+        Unterminated L<...> sequence
 

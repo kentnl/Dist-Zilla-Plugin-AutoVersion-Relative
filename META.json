@@ -7,7 +7,7 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "0.01000104",
+   "version" : "0.01000119",
    "name" : "Dist-Zilla-Plugin-AutoVersion-Relative",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
@@ -15,7 +15,7 @@
    "license" : "perl",
    "provides" : {
       "Dist::Zilla::Plugin::AutoVersion::Relative" : {
-         "version" : "0.01000104",
+         "version" : "0.01000119",
          "file" : "lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm"
       }
    },

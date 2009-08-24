@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Dist::Zilla::Plugin::AutoVersion::Relative',
   AUTHOR    => 'Kent\ Fredric\ \<kentnl\@cpan\.org\>',
   ABSTRACT  => 'Time\-Relative\ versioning',
-  VERSION   => '0.01000104',
+  VERSION   => '0.01000119',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
