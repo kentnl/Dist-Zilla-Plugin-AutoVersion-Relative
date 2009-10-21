@@ -1,6 +1,13 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Use MooseX::StrictConstructor ( Because I keep naming
+            my args wrong )
+          Fixed POD Errors
+          Generated Compile tests
+          +Ship dist.ini
+
+0.01000119 2009-08-24 07:05:45 UTC
           Fixed Timezone Coercion.
           Docu Tweak
 

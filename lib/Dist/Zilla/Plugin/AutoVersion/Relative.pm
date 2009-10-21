@@ -45,6 +45,7 @@ use Moose;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
+use MooseX::StrictConstructor;
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -88,7 +89,7 @@ Various Tokens that specify what the relative version is relative to
 
 You want this.
 
-Either Olson Format ( L<Olson::Abbreviations ), "Pacific/Auckland" , or merely "+1200" format.
+Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
 
 =cut
 
