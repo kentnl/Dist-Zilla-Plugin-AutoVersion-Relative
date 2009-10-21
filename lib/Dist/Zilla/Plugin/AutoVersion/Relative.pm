@@ -1,5 +1,6 @@
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-our $VERSION = '0.01000119';
+our $VERSION = '0.01006104';
+
 
 
 # ABSTRACT: Time-Relative versioning
@@ -14,6 +15,7 @@ use Moose;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
+use MooseX::StrictConstructor;
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -95,7 +97,6 @@ sub provide_version {
 
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -104,7 +105,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01000119
+version 0.01006104
 
 =head1 SYNOPSIS
 
@@ -131,7 +132,9 @@ except there's a few more user-visible entities, and a few more visible options.
    ; 1.0110012
   format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
 
+=cut
 
+=pod
 
 =head1 WARNING
 
@@ -139,7 +142,9 @@ If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
 couldn't think of a more sane default. But you're setting that anyway, because
 if you don't,you be cargo cultin' the bad way
 
+=cut
 
+=pod
 
 =head1 ATTRIBUTES
 
@@ -151,7 +156,9 @@ if you don't,you be cargo cultin' the bad way
 
 See L</FORMATING>
 
+=cut
 
+=pod
 
 =head2 DATE ATTRIBUTES
 
@@ -171,9 +178,11 @@ Various Tokens that specify what the relative version is relative to
 
 You want this.
 
-Either Olson Format ( L<Olson::Abbreviations ), "Pacific/Auckland" , or merely "+1200" format.
+Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
 
+=cut
 
+=pod
 
 =head1 METHODS
 
@@ -181,7 +190,9 @@ Either Olson Format ( L<Olson::Abbreviations ), "Pacific/Auckland" , or merely "
 
 returns the formatted version string to satisfy the roles.
 
+=cut
 
+=pod
 
 =head1 FORMATTING
 
@@ -220,11 +231,9 @@ the exact number of days passed. Fixes welcome if you want this to respond prope
 
 The remainder number of hours elapsed.
 
-
-
 =head1 AUTHOR
 
-  Kent Fredric <kentnl@cpan.org>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -233,6 +242,5 @@ This software is copyright (c) 2009 by Kent Fredric.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

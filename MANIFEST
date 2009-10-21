@@ -6,7 +6,9 @@ META.json
 META.yml
 Makefile.PL
 README
+dist.ini
 lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
+t/00-compile.t
 t/01-load.t
 t/02-basic.t
 t/fake/dist.pm

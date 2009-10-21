@@ -2,12 +2,12 @@
    "resources" : {
       "repository" : "http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092310",
+   "generated_by" : "Dist::Zilla version 1.092930",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "0.01000119",
+   "version" : "0.01006104",
    "name" : "Dist-Zilla-Plugin-AutoVersion-Relative",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
@@ -15,19 +15,21 @@
    "license" : "perl",
    "provides" : {
       "Dist::Zilla::Plugin::AutoVersion::Relative" : {
-         "version" : "0.01000119",
+         "version" : "0.01006104",
          "file" : "lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm"
       }
    },
    "requires" : {
-      "DateTime" : "0.50",
-      "MooseX::Types::Moose" : "0",
       "MooseX::Has::Sugar" : "0.0404",
+      "MooseX::Types::Moose" : "0",
+      "DateTime" : "0.50",
       "namespace::autoclean" : "0.08",
       "MooseX::Types::DateTime::ButMaintained" : "0.08",
       "Test::More" : "0",
+      "MooseX::StrictConstructor" : "0.08",
       "Dist::Zilla" : "1.092310",
       "Moose" : "0.89"
    },
    "abstract" : "Time-Relative versioning"
 }
+

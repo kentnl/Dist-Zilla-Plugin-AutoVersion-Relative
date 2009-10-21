@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 0.01000119
+    version 0.01006104
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to
@@ -50,8 +50,8 @@ ATTRIBUTES
    time_zone
     You want this.
 
-    Either Olson Format ( "Auckland" , or merely "+1200" format." in
-    Olson::Abbreviations ), "Pacific
+    Either Olson Format ( Olson::Abbreviations ), "Pacific/Auckland" , or
+    merely "+1200" format.
 
 METHODS
   provide_version
@@ -89,18 +89,11 @@ FORMATTING
     The remainder number of hours elapsed.
 
 AUTHOR
-      Kent Fredric <kentnl@cpan.org>
+    Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2009 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 174:
-        Unterminated L<...> sequence
 

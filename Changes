@@ -1,5 +1,13 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01006104 2009-10-21 16:56:39 UTC
+          Use MooseX::StrictConstructor ( Because I keep naming
+            my args wrong )
+          Fixed POD Errors
+          Generated Compile tests
+          +Ship dist.ini
+          Upgraded docs with new Pod::Purler 
+
 0.01000119 2009-08-24 07:05:45 UTC
           Fixed Timezone Coercion.
           Docu Tweak
