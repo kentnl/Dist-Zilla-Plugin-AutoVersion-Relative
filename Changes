@@ -6,6 +6,7 @@ Revision history for {{$dist->name}}
           Fixed POD Errors
           Generated Compile tests
           +Ship dist.ini
+          Upgraded docs with new Pod::Purler 
 
 0.01000119 2009-08-24 07:05:45 UTC
           Fixed Timezone Coercion.
