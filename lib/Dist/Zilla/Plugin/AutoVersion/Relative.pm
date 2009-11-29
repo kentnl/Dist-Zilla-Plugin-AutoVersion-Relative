@@ -60,8 +60,7 @@ use Readonly;
 
 Readonly my $MONTHS_IN_YEAR => 12;
 
-Readonly my $DAYS_IN_MONTH  => 31; # This is assumed, makes our years square.
-
+Readonly my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -86,7 +85,7 @@ See L</FORMATING>
 
 has major => ( isa => Int, ro, default => 1 );
 has minor => ( isa => Int, ro, default => 1 );
-has format => ( ## no critic (RequireInterpolationOfMetachars)
+has format => (    ## no critic (RequireInterpolationOfMetachars)
   isa => Str,
   ro, default => q|{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}|,
 );
@@ -121,12 +120,12 @@ Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely 
 
 =cut
 
-has year      => ( isa => Int,      ro, default   => 2000 );
-has month     => ( isa => Int,      ro, default   => 1 );
-has day       => ( isa => Int,      ro, default   => 1 );
-has hour      => ( isa => Int,      ro, default   => 0 );
-has minute    => ( isa => Int,      ro, default   => 0 );
-has second    => ( isa => Int,      ro, default   => 0 );
+has year   => ( isa => Int, ro, default => 2000 );
+has month  => ( isa => Int, ro, default => 1 );
+has day    => ( isa => Int, ro, default => 1 );
+has hour   => ( isa => Int, ro, default => 0 );
+has minute => ( isa => Int, ro, default => 0 );
+has second => ( isa => Int, ro, default => 0 );
 has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
 
 =p_attr _release_time
@@ -145,7 +144,7 @@ has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
 
 has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
-has 'relative'      => ( isa => Duration, coerce, ro, lazy_build );
+has 'relative' => ( isa => Duration, coerce, ro, lazy_build );
 
 =p_builder _build__release_time
 
@@ -191,26 +190,28 @@ returns the formatted version string to satisfy the roles.
 
 =cut
 
-{ my $av_track = 0;
-sub provide_version {
-  my ($self) = @_;
-  $av_track++;
-  my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
+{
+  my $av_track = 0;
 
-  my $version = $self->fill_in_string(
-    $self->format,
-    {
-      major    => \( $self->major ),
-      minor    => \( $self->minor ),
-      relative => \( $self->relative ),
-      cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
-      days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-      hours => sub { $h },
-    },
-    { 'package' => "AutoVersion::_${av_track}_", },
-  );
-  return $version;
-}
+  sub provide_version {
+    my ($self) = @_;
+    $av_track++;
+    my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
+
+    my $version = $self->fill_in_string(
+      $self->format,
+      {
+        major    => \( $self->major ),
+        minor    => \( $self->minor ),
+        relative => \( $self->relative ),
+        cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
+        days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        hours => sub { $h },
+      },
+      { 'package' => "AutoVersion::_${av_track}_", },
+    );
+    return $version;
+  }
 }
 
 =head1 FORMATTING
