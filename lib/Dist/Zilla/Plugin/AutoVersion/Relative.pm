@@ -1,3 +1,6 @@
+use strict;
+use warnings;
+
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
 # ABSTRACT: Time-Relative versioning
@@ -47,13 +50,18 @@ if you don't,you be cargo cultin' the bad way
 
 =cut
 
-use strict;
-use warnings;
 use Moose;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
 use MooseX::StrictConstructor;
+
+use Readonly;
+
+Readonly my $MONTHS_IN_YEAR => 12;
+
+Readonly my $DAYS_IN_MONTH  => 31; # This is assumed, makes our years square.
+
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -78,9 +86,9 @@ See L</FORMATING>
 
 has major => ( isa => Int, ro, default => 1 );
 has minor => ( isa => Int, ro, default => 1 );
-has format => (
+has format => ( ## no critic (RequireInterpolationOfMetachars)
   isa => Str,
-  ro, default => q[{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}]
+  ro, default => q|{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}|,
 );
 
 =d_attr year
@@ -196,13 +204,12 @@ sub provide_version {
       minor    => \( $self->minor ),
       relative => \( $self->relative ),
       cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
-      days     => sub { ( ( ( $y * 12 ) + $m ) * 31 ) + $d },
+      days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
       hours => sub { $h },
     },
-    {
-      package => "AutoVersion::_${av_track}_",
-    },
+    { 'package' => "AutoVersion::_${av_track}_", },
   );
+  return $version;
 }
 }
 
@@ -249,6 +256,9 @@ the exact number of days passed. Fixes welcome if you want this to respond prope
 The remainder number of hours elapsed.
 
 =cut
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 1;
 
