@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01010003 2009-11-30 04:50:13 Pacific/Auckland
           Reworked the documentation to utilize Pod::Weaver.
           +perltidy
           +perlcritic
