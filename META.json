@@ -2,20 +2,23 @@
    "resources" : {
       "repository" : "http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative"
    },
-   "generated_by" : "Dist::Zilla version 1.092930",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "0.01006104",
+   "generated_by" : "Dist::Zilla version 1.093280",
+   "version" : "0.01010003",
    "name" : "Dist-Zilla-Plugin-AutoVersion-Relative",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
    ],
    "license" : "perl",
+   "build_requires" : {
+      "Module::Build" : "0.35"
+   },
    "provides" : {
       "Dist::Zilla::Plugin::AutoVersion::Relative" : {
-         "version" : "0.01006104",
+         "version" : "0.01010003",
          "file" : "lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm"
       }
    },
@@ -30,6 +33,9 @@
       "Dist::Zilla" : "1.092310",
       "Moose" : "0.89"
    },
-   "abstract" : "Time-Relative versioning"
+   "abstract" : "Time-Relative versioning",
+   "configure_requires" : {
+      "Module::Build" : "0.35"
+   }
 }
 

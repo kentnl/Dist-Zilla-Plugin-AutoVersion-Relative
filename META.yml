@@ -2,7 +2,11 @@
 abstract: 'Time-Relative versioning'
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
-generated_by: 'Dist::Zilla version 1.092930'
+build_requires:
+  Module::Build: 0.35
+configure_requires:
+  Module::Build: 0.35
+generated_by: 'Dist::Zilla version 1.093280'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -11,7 +15,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: 0.01006104
+    version: 0.01010003
 requires:
   DateTime: 0.50
   Dist::Zilla: 1.092310
@@ -24,4 +28,4 @@ requires:
   namespace::autoclean: 0.08
 resources:
   repository: http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative
-version: 0.01006104
+version: 0.01010003

@@ -1,5 +1,16 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01010003 2009-11-30 04:50:13 Pacific/Auckland
+          Reworked the documentation to utilize Pod::Weaver.
+          +perltidy
+          +perlcritic
+          +compiletests
+          -use ok
+          +waverconfig
+          Injected gitty goodness into dist.ini
+          Ported to Pod::Weaver
+          Drop MakeMaker support
+
 0.01006104 2009-10-21 16:56:39 UTC
           Use MooseX::StrictConstructor ( Because I keep naming
             my args wrong )

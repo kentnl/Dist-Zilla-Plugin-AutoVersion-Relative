@@ -1,5 +1,8 @@
+use strict;
+use warnings;
+
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-our $VERSION = '0.01006104';
+our $VERSION = '0.01010003';
 
 
 
@@ -9,13 +12,17 @@ our $VERSION = '0.01006104';
 
 
 
-use strict;
-use warnings;
 use Moose;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
 use MooseX::StrictConstructor;
+
+use Readonly;
+
+Readonly my $MONTHS_IN_YEAR => 12;
+
+Readonly my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -25,23 +32,25 @@ use namespace::autoclean;
 
 has major => ( isa => Int, ro, default => 1 );
 has minor => ( isa => Int, ro, default => 1 );
-has format => (
+has format => (    ## no critic (RequireInterpolationOfMetachars)
   isa => Str,
-  ro, default => q[{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}]
+  ro, default => q|{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}|,
 );
 
 
-has year      => ( isa => Int,      ro, default   => 2000 );
-has month     => ( isa => Int,      ro, default   => 1 );
-has day       => ( isa => Int,      ro, default   => 1 );
-has hour      => ( isa => Int,      ro, default   => 0 );
-has minute    => ( isa => Int,      ro, default   => 0 );
-has second    => ( isa => Int,      ro, default   => 0 );
+has year   => ( isa => Int, ro, default => 2000 );
+has month  => ( isa => Int, ro, default => 1 );
+has day    => ( isa => Int, ro, default => 1 );
+has hour   => ( isa => Int, ro, default => 0 );
+has minute => ( isa => Int, ro, default => 0 );
+has second => ( isa => Int, ro, default => 0 );
 has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
+
 
 has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
-has 'relative'      => ( isa => Duration, coerce, ro, lazy_build );
+has 'relative' => ( isa => Duration, coerce, ro, lazy_build );
+
 
 sub _build__release_time {
   my $self = shift;
@@ -57,11 +66,13 @@ sub _build__release_time {
   return $o;
 }
 
+
 sub _build__current_time {
   my $self = shift;
   my $o    = DateTime->now;
   return $o;
 }
+
 
 sub _build_relative {
   my $self = shift;
@@ -69,29 +80,34 @@ sub _build_relative {
   return $x;
 }
 
-{ my $av_track = 0;
-sub provide_version {
-  my ($self) = @_;
-  $av_track++;
-  my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
-  my $version = $self->fill_in_string(
-    $self->format,
-    {
-      major    => \( $self->major ),
-      minor    => \( $self->minor ),
-      relative => \( $self->relative ),
-      cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
-      days     => sub { ( ( ( $y * 12 ) + $m ) * 31 ) + $d },
-      hours => sub { $h },
-    },
-    {
-      package => "AutoVersion::_${av_track}_",
-    },
-  );
-}
+{
+  my $av_track = 0;
+
+  sub provide_version {
+    my ($self) = @_;
+    $av_track++;
+    my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
+
+    my $version = $self->fill_in_string(
+      $self->format,
+      {
+        major    => \( $self->major ),
+        minor    => \( $self->minor ),
+        relative => \( $self->relative ),
+        cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
+        days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        hours => sub { $h },
+      },
+      { 'package' => "AutoVersion::_${av_track}_", },
+    );
+    return $version;
+  }
 }
 
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 1;
 
@@ -105,7 +121,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01006104
+version 0.01010003
 
 =head1 SYNOPSIS
 
@@ -114,6 +130,11 @@ This plugin is to allow you to auto-increment versions based on a relative time 
 
 It doesn't do it all for you, you can choose, its mostly like L<Dist::Zilla::Plugin::AutoVersion>
 except there's a few more user-visible entities, and a few more visible options.
+
+=head1 CONFIGURATION
+
+To configure this, you specify the date that the version is to be
+relative to.
 
 =head2 Serving Suggestion
 
@@ -132,67 +153,8 @@ except there's a few more user-visible entities, and a few more visible options.
    ; 1.0110012
   format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
 
-=cut
-
-=pod
-
-=head1 WARNING
-
-If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
-couldn't think of a more sane default. But you're setting that anyway, because
-if you don't,you be cargo cultin' the bad way
-
-=cut
-
-=pod
-
-=head1 ATTRIBUTES
-
-=head2 major
-
-=head2 minor
-
-=head2 format
-
-See L</FORMATING>
-
-=cut
-
-=pod
-
-=head2 DATE ATTRIBUTES
-
-Various Tokens that specify what the relative version is relative to
-
-=head3 year
-
-=head3 month
-
-=head3 day
-
-=head3 minute
-
-=head3 second
-
-=head3 time_zone
-
-You want this.
-
-Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
-
-=cut
-
-=pod
-
-=head1 METHODS
-
-=head2 provide_version
-
-returns the formatted version string to satisfy the roles.
-
-=cut
-
-=pod
+For the list of tuneables and how to use them, see
+ L</ATTRIBUTES> and L</DATE ATTRIBUTES>
 
 =head1 FORMATTING
 
@@ -200,6 +162,60 @@ There are a handful of things we inject into the template for you
 
   # Just to give you an idea, you don't really want to be using this though.
   {{ $major }}.{{ $minor }}{{ days }}{{ hours }}{{ $relative->seconds }}
+
+See L</FORMAT FIELDS> for the available fields and their use.
+
+=head1 WARNING
+
+If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
+couldn't think of a more sane default. But you're setting that anyway, because
+if you don't,you be cargo cultin' the bad way
+
+=head1 ATTRIBUTES
+
+=head2 major
+
+=head2 major = 1
+
+=head2 minor
+
+=head2 minor = 1
+
+=head2 format
+
+=head2 format = {{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}
+
+See L</FORMATING>
+
+=head1 DATE ATTRIBUTES
+
+=head2 year
+
+=head2 year = 2000
+
+=head2 month
+
+=head2 month = 1
+
+=head2 day
+
+=head2 day = 1
+
+=head2 minute
+
+=head2 minute = 0
+
+=head2 second
+
+=head2 second = 0
+
+=head2 time_zone
+
+You want this.
+
+Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
+
+=head1 FORMAT FIELDS
 
 =head2 $major
 
@@ -213,11 +229,13 @@ The value set for minor
 
 A L<DateTime::Duration> object
 
+=head2 cldr
+
 =head2 cldr($ARG)
 
 CLDR for the current time. See L<DateTime/format_cldr>
 
-=head2 date()
+=head2 days
 
 An approximation of the number of days passed since milestone.
 
@@ -227,13 +245,45 @@ have 372 days.
 This is purely to make sure numbers don't slip backwards, as its currently too hard to work out
 the exact number of days passed. Fixes welcome if you want this to respond properly.
 
-=head2 hours()
+=head2 hours
 
 The remainder number of hours elapsed.
 
+=head1 METHODS
+
+=head2 provide_version
+
+returns the formatted version string to satisfy the roles.
+
+=head1 ATTRIBUTE METHODS
+
+=head2 has_time_zone <- predicate('time_zone')
+
+=head1 PRIVATE ATTRIBUTES
+
+=head2 _release_time
+
+=head2 _release_time DateTime[ro]
+
+=head2 _current_time
+
+=head2 _current_time DateTime[ro]
+
+=head2 relative
+
+=head2 relative Duration[ro]
+
+=head1 PRIVATE BUILDERS
+
+=head2 _build__release_time
+
+=head2 _build__current_time
+
+=head2 _build_relative
+
 =head1 AUTHOR
 
-Kent Fredric <kentnl@cpan.org>
+  Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
