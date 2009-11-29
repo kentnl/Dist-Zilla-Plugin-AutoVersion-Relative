@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Reworked the documentation to utilize Pod::Weaver.
           +perltidy
           +perlcritic
           +compiletests

@@ -12,6 +12,11 @@ This plugin is to allow you to auto-increment versions based on a relative time 
 It doesn't do it all for you, you can choose, its mostly like L<Dist::Zilla::Plugin::AutoVersion>
 except there's a few more user-visible entities, and a few more visible options.
 
+=head1 CONFIGURATION
+
+To configure this, you specify the date that the version is to be
+relative to.
+
 =head2 Serving Suggestion
 
   [AutoVersion::Relative]
@@ -28,6 +33,9 @@ except there's a few more user-visible entities, and a few more visible options.
 
    ; 1.0110012
   format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
+
+For the list of tuneables and how to use them, see
+ L</ATTRIBUTES> and L</DATE ATTRIBUTES>
 
 =cut
 
@@ -52,13 +60,17 @@ with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 use DateTime ();
 use namespace::autoclean;
 
-=head1 ATTRIBUTES
+=attr major
 
-=head2 major
+=attr major = 1
 
-=head2 minor
+=attr minor
 
-=head2 format
+=attr minor = 1
+
+=attr format
+
+=attr format = {{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}
 
 See L</FORMATING>
 
@@ -71,25 +83,33 @@ has format => (
   ro, default => q[{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}]
 );
 
-=head2 DATE ATTRIBUTES
+=d_attr year
 
-Various Tokens that specify what the relative version is relative to
+=d_attr year = 2000
 
-=head3 year
+=d_attr month
 
-=head3 month
+=d_attr month = 1
 
-=head3 day
+=d_attr day
 
-=head3 minute
+=d_attr day = 1
 
-=head3 second
+=d_attr minute
 
-=head3 time_zone
+=d_attr minute = 0
+
+=d_attr second
+
+=d_attr second = 0
+
+=d_attr time_zone
 
 You want this.
 
 Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
+
+=attr_meth has_time_zone <- predicate('time_zone')
 
 =cut
 
@@ -101,9 +121,27 @@ has minute    => ( isa => Int,      ro, default   => 0 );
 has second    => ( isa => Int,      ro, default   => 0 );
 has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
 
+=p_attr _release_time
+
+=p_attr _release_time DateTime[ro]
+
+=p_attr _current_time
+
+=p_attr _current_time DateTime[ro]
+
+=p_attr relative
+
+=p_attr relative Duration[ro]
+
+=cut
+
 has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
 has 'relative'      => ( isa => Duration, coerce, ro, lazy_build );
+
+=p_builder _build__release_time
+
+=cut
 
 sub _build__release_time {
   my $self = shift;
@@ -119,20 +157,27 @@ sub _build__release_time {
   return $o;
 }
 
+=p_builder _build__current_time
+
+=cut
+
 sub _build__current_time {
   my $self = shift;
   my $o    = DateTime->now;
   return $o;
 }
 
+=p_builder _build_relative
+
+=cut
+
 sub _build_relative {
   my $self = shift;
   my $x    = $self->_current_time->subtract_datetime( $self->_release_time );
   return $x;
 }
-=head1 METHODS
 
-=head2 provide_version
+=method provide_version
 
 returns the formatted version string to satisfy the roles.
 
@@ -168,23 +213,28 @@ There are a handful of things we inject into the template for you
   # Just to give you an idea, you don't really want to be using this though.
   {{ $major }}.{{ $minor }}{{ days }}{{ hours }}{{ $relative->seconds }}
 
-=head2 $major
+See L</FORMAT FIELDS> for the available fields and their use.
+
+
+=field $major
 
 The value set for major
 
-=head2 $minor
+=field $minor
 
 The value set for minor
 
-=head2 $relative
+=field $relative
 
 A L<DateTime::Duration> object
 
-=head2 cldr($ARG)
+=field cldr
+
+=field cldr($ARG)
 
 CLDR for the current time. See L<DateTime/format_cldr>
 
-=head2 date()
+=field days
 
 An approximation of the number of days passed since milestone.
 
@@ -194,7 +244,7 @@ have 372 days.
 This is purely to make sure numbers don't slip backwards, as its currently too hard to work out
 the exact number of days passed. Fixes welcome if you want this to respond properly.
 
-=head2 hours()
+=field hours
 
 The remainder number of hours elapsed.
 
