@@ -1,6 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          +perltidy
+          +perlcritic
+          +compiletests
+          -use ok
+          +waverconfig
           Injected gitty goodness into dist.ini
           Ported to Pod::Weaver
           Drop MakeMaker support
