@@ -1,2 +1,3 @@
 ^MANIFEST.SKIP
 ^inc/
+^Dist-Zilla-Plugin-AutoVersion-Relative
