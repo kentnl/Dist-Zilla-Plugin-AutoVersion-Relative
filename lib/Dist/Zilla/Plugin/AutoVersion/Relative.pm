@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-our $VERSION = '0.01010003';
+our $VERSION = '0.01010014';
 
 
 
@@ -121,7 +121,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01010003
+version 0.01010014
 
 =head1 SYNOPSIS
 

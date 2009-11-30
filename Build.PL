@@ -17,6 +17,7 @@ my $build = Module::Build->new(
     "MooseX::Types::Moose" => '0',
     "DateTime" => '0.50',
     "namespace::autoclean" => '0.08',
+    "Readonly" => '0',
     "MooseX::Types::DateTime::ButMaintained" => '0.08',
     "Test::More" => '0',
     "MooseX::StrictConstructor" => '0.08',

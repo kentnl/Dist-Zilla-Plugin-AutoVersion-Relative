@@ -7,7 +7,7 @@
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
    "generated_by" : "Dist::Zilla version 1.093280",
-   "version" : "0.01010003",
+   "version" : "0.01010014",
    "name" : "Dist-Zilla-Plugin-AutoVersion-Relative",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
@@ -18,7 +18,7 @@
    },
    "provides" : {
       "Dist::Zilla::Plugin::AutoVersion::Relative" : {
-         "version" : "0.01010003",
+         "version" : "0.01010014",
          "file" : "lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm"
       }
    },
@@ -27,6 +27,7 @@
       "MooseX::Types::Moose" : "0",
       "DateTime" : "0.50",
       "namespace::autoclean" : "0.08",
+      "Readonly" : "0",
       "MooseX::Types::DateTime::ButMaintained" : "0.08",
       "Test::More" : "0",
       "MooseX::StrictConstructor" : "0.08",

@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01010014 2009-11-30 15:44:26 Pacific/Auckland
+          Fix Dep: Readonly
+
 0.01010003 2009-11-30 04:50:13 Pacific/Auckland
           Reworked the documentation to utilize Pod::Weaver.
           +perltidy
