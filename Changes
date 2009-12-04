@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01010513 2009-12-04 14:46:57 Pacific/Auckland
+          Drop lots of downstream deps by using only ::DateTime
+          Reduced support for Olsons ( they're not that useful anyway, 
+              they change with daylight saving )
+          Fixed inc:: bootstrapping in build
+
 0.01010014 2009-11-30 15:44:26 Pacific/Auckland
           Fix Dep: Readonly
 

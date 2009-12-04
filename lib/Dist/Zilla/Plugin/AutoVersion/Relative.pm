@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-our $VERSION = '0.01010014';
+our $VERSION = '0.01010513';
 
 
 
@@ -14,7 +14,7 @@ our $VERSION = '0.01010014';
 
 use Moose;
 use MooseX::Types::Moose qw( :all );
-use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
+use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
 use MooseX::StrictConstructor;
 
@@ -121,7 +121,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01010014
+version 0.01010513
 
 =head1 SYNOPSIS
 
@@ -213,7 +213,7 @@ See L</FORMATING>
 
 You want this.
 
-Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
+Formatting is like, "Pacific/Auckland" , or merely "+1200" format.
 
 =head1 FORMAT FIELDS
 

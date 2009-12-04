@@ -15,18 +15,18 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: 0.01010014
+    version: 0.01010513
 requires:
   DateTime: 0.50
   Dist::Zilla: 1.092310
   Moose: 0.89
   MooseX::Has::Sugar: 0.0404
   MooseX::StrictConstructor: 0.08
-  MooseX::Types::DateTime::ButMaintained: 0.08
+  MooseX::Types::DateTime: 0.05
   MooseX::Types::Moose: 0
   Readonly: 0
   Test::More: 0
   namespace::autoclean: 0.08
 resources:
   repository: http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative
-version: 0.01010014
+version: 0.01010513
