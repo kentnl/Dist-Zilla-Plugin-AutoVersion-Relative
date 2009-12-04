@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01010513 2009-12-04 14:46:57 Pacific/Auckland
           Drop lots of downstream deps by using only ::DateTime
           Reduced support for Olsons ( they're not that useful anyway, 
               they change with daylight saving )
