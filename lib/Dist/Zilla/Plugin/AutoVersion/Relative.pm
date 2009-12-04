@@ -52,7 +52,7 @@ if you don't,you be cargo cultin' the bad way
 
 use Moose;
 use MooseX::Types::Moose qw( :all );
-use MooseX::Types::DateTime::ButMaintained qw( TimeZone Duration Now );
+use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::Has::Sugar 0.0300;
 use MooseX::StrictConstructor;
 
@@ -114,7 +114,7 @@ has format => (    ## no critic (RequireInterpolationOfMetachars)
 
 You want this.
 
-Either Olson Format ( L<Olson::Abbreviations> ), "Pacific/Auckland" , or merely "+1200" format.
+Formatting is like, "Pacific/Auckland" , or merely "+1200" format.
 
 =attr_meth has_time_zone <- predicate('time_zone')
 
