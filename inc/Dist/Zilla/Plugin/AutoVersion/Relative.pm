@@ -1,4 +1,4 @@
-package  inc::Dist::Zilla::Plugin::AutoVersion::Relative
+package inc::Dist::Zilla::Plugin::AutoVersion::Relative;
 
 # $Id:$
 use strict;
