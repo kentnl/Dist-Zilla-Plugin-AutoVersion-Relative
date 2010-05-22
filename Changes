@@ -1,6 +1,6 @@
 Revision history for {{$dist->name}}
 
-{{$NEXT}
+{{$NEXT}}
           Moved to @KENTNL, + inc::lib bootstrap
           Made compatible with DZIL 2.0+
 
