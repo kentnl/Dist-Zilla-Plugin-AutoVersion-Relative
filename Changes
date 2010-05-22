@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
-{{$NEXT}}
+{{$NEXT}
+          Moved to @KENTNL, + inc::lib bootstrap
+          Made compatible with DZIL 2.0+
 
 0.01010513 2009-12-04 14:46:57 Pacific/Auckland
           Drop lots of downstream deps by using only ::DateTime

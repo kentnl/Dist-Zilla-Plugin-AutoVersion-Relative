@@ -5,18 +5,23 @@ use warnings;
 use Test::More tests => 4;                      # last test to print
 use Dist::Zilla::Plugin::AutoVersion::Relative;
 use Dist::Zilla;
+use Dist::Zilla::Tester;
 
-my $dz = Dist::Zilla->new(
-  root => 't/fake/' ,
-  name => 'Test-DZPAvR',
-  copyright_holder => 'Kent Fredric',
-  main_module => 't/fake/dist.pm',
-  abstract => "A Fake Dist",
-  license => "Perl_5",
-  plugins => [
-    map { eval "use $_; 1;"; $_ } map { 'Dist::Zilla::Plugin::' . $_ } 'AllFiles',
-  ]
-);
+my $config = <<'EOF';
+name = Test-DZPAvR
+copyright_holder = Kent Fredric
+main_module = t/fake/dist.pm
+abstract = A Fake Dist
+license = Perl_5
+
+[GatherDir]
+EOF
+
+use Dist::Zilla::Plugin::GatherDir;
+
+my $dz = Dist::Zilla::Tester->from_config({
+  dist_root => 't/fake/' ,
+},{  add_files => { 'source/dist.ini' => $config } } );
 
 my $plug = Dist::Zilla::Plugin::AutoVersion::Relative->new(
   zilla => $dz,
