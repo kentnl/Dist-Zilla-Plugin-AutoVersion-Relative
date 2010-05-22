@@ -2,9 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-our $VERSION = '0.01010513';
-
-
+BEGIN {
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01027903';
+}
 
 # ABSTRACT: Time-Relative versioning
 
@@ -121,7 +121,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01010513
+version 0.01027903
 
 =head1 SYNOPSIS
 
@@ -287,7 +287,7 @@ returns the formatted version string to satisfy the roles.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 0.01010513
+    version 0.01027903
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to
@@ -121,7 +121,7 @@ AUTHOR
       Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2009 by Kent Fredric.
+    This software is copyright (c) 2010 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
