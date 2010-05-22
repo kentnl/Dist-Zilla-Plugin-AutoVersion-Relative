@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01027903 2010-05-23 03:24:03 Pacific/Auckland
           Moved to @KENTNL, + inc::lib bootstrap
           Made compatible with DZIL 2.0+
 
