@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01034313 2010-07-25 13:17:26 Pacific/Auckland
+          Reduced a few dependencies, cleaned surplus T-Deps.
+          Modified docs a little bit.
+
 0.01027903 2010-05-23 03:24:03 Pacific/Auckland
           Moved to @KENTNL, + inc::lib bootstrap
           Made compatible with DZIL 2.0+

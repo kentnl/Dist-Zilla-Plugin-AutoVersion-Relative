@@ -2,15 +2,15 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 0.01027903
+    version 0.01034313
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to
     auto-increment versions based on a relative time point.
 
-    It doesn't do it all for you, you can choose, its mostly like
-    Dist::Zilla::Plugin::AutoVersion except there's a few more user-visible
-    entities, and a few more visible options.
+    It doesn't do it all for you, you can choose, its mostly like The
+    "AutoVersion" Plugin except there's a few more user-visible entities,
+    and a few more visible options.
 
 CONFIGURATION
     To configure this, you specify the date that the version is to be
@@ -81,7 +81,7 @@ FORMAT FIELDS
     The value set for minor
 
   $relative
-    A DateTime::Duration object
+    A "DateTime::Duration" object
 
   cldr
   cldr($ARG)
@@ -118,7 +118,7 @@ PRIVATE BUILDERS
   _build__current_time
   _build_relative
 AUTHOR
-      Kent Fredric <kentnl@cpan.org>
+    Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Kent Fredric.

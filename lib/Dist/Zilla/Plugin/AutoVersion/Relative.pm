@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01027903';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01034313';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -15,7 +15,6 @@ BEGIN {
 use Moose;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
-use MooseX::Has::Sugar 0.0300;
 use MooseX::StrictConstructor;
 
 use Readonly;
@@ -30,28 +29,29 @@ use DateTime ();
 use namespace::autoclean;
 
 
-has major => ( isa => Int, ro, default => 1 );
-has minor => ( isa => Int, ro, default => 1 );
+has major => ( isa => Int, is => 'ro', default => 1 );
+has minor => ( isa => Int, is => 'ro', default => 1 );
 has format => (    ## no critic (RequireInterpolationOfMetachars)
-  isa => Str,
-  ro, default => q|{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}|,
+  isa     => Str,
+  is      => 'ro',
+  default => q|{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}|,
 );
 
 
-has year   => ( isa => Int, ro, default => 2000 );
-has month  => ( isa => Int, ro, default => 1 );
-has day    => ( isa => Int, ro, default => 1 );
-has hour   => ( isa => Int, ro, default => 0 );
-has minute => ( isa => Int, ro, default => 0 );
-has second => ( isa => Int, ro, default => 0 );
-has time_zone => ( isa => TimeZone, coerce, ro, predicate => 'has_time_zone' );
+has year      => ( isa => Int,      is     => 'ro', default => 2000 );
+has month     => ( isa => Int,      is     => 'ro', default => 1 );
+has day       => ( isa => Int,      is     => 'ro', default => 1 );
+has hour      => ( isa => Int,      is     => 'ro', default => 0 );
+has minute    => ( isa => Int,      is     => 'ro', default => 0 );
+has second    => ( isa => Int,      is     => 'ro', default => 0 );
+has time_zone => ( isa => TimeZone, coerce => 1,    is      => 'ro', predicate => 'has_time_zone' );
 
 
-has '_release_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
-has '_current_time' => ( isa => 'DateTime', coerce, ro, lazy_build );
-has 'relative' => ( isa => Duration, coerce, ro, lazy_build );
+has '_release_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
+has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
+has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 
-
+## no critic (ProhibitUnusedPrivateSubroutines)
 sub _build__release_time {
   my $self = shift;
   my $o    = DateTime->new(
@@ -121,14 +121,14 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01027903
+version 0.01034313
 
 =head1 SYNOPSIS
 
 Like all things, time is relative.
 This plugin is to allow you to auto-increment versions based on a relative time point.
 
-It doesn't do it all for you, you can choose, its mostly like L<Dist::Zilla::Plugin::AutoVersion>
+It doesn't do it all for you, you can choose, its mostly like L<< The C<AutoVersion> Plugin|Dist::Zilla::Plugin::AutoVersion >>
 except there's a few more user-visible entities, and a few more visible options.
 
 =head1 CONFIGURATION
@@ -227,7 +227,7 @@ The value set for minor
 
 =head2 $relative
 
-A L<DateTime::Duration> object
+A L<< C<DateTime::Duration>|DateTime::Duration >> object
 
 =head2 cldr
 
@@ -283,7 +283,7 @@ returns the formatted version string to satisfy the roles.
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl@cpan.org>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
