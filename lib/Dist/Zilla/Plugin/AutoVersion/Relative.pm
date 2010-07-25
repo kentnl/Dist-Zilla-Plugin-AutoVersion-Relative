@@ -12,7 +12,7 @@ package Dist::Zilla::Plugin::AutoVersion::Relative;
 Like all things, time is relative.
 This plugin is to allow you to auto-increment versions based on a relative time point.
 
-It doesn't do it all for you, you can choose, its mostly like L<The AutoVersion Plugin|Dist::Zilla::Plugin::AutoVersion>
+It doesn't do it all for you, you can choose, its mostly like L<< The C<AutoVersion> Plugin|Dist::Zilla::Plugin::AutoVersion >>
 except there's a few more user-visible entities, and a few more visible options.
 
 =head1 CONFIGURATION
