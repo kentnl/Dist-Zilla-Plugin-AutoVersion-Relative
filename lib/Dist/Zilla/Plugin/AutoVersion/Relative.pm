@@ -12,7 +12,7 @@ package Dist::Zilla::Plugin::AutoVersion::Relative;
 Like all things, time is relative.
 This plugin is to allow you to auto-increment versions based on a relative time point.
 
-It doesn't do it all for you, you can choose, its mostly like L<Dist::Zilla::Plugin::AutoVersion>
+It doesn't do it all for you, you can choose, its mostly like L<The AutoVersion Plugin|Dist::Zilla::Plugin::AutoVersion>
 except there's a few more user-visible entities, and a few more visible options.
 
 =head1 CONFIGURATION
@@ -149,7 +149,7 @@ has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 =p_builder _build__release_time
 
 =cut
-
+## no critic (ProhibitUnusedPrivateSubroutines)
 sub _build__release_time {
   my $self = shift;
   my $o    = DateTime->new(
@@ -234,7 +234,7 @@ The value set for minor
 
 =field $relative
 
-A L<DateTime::Duration> object
+A L<< C<DateTime::Duration>|DateTime::Duration >> object
 
 =field cldr
 
