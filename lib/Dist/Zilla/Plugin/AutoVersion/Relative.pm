@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01034313';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01035617';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -12,10 +12,10 @@ BEGIN {
 
 
 
-use Moose;
+use Moose 1.09;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
-use MooseX::StrictConstructor;
+use MooseX::StrictConstructor 0.10;
 
 use Readonly;
 
@@ -121,7 +121,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01034313
+version 0.01035617
 
 =head1 SYNOPSIS
 

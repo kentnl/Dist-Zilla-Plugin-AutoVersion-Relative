@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01035617 2010-08-07 17:42:35 Pacific/Auckland
+          Depend on latest moose and Mx::StrictConstructor to resolve 
+            Deprecation problems.
+
 0.01034313 2010-07-25 13:17:26 Pacific/Auckland
           Reduced a few dependencies, cleaned surplus T-Deps.
           Modified docs a little bit.

@@ -28,12 +28,11 @@
          "requires" : {
             "DateTime" : "0.50",
             "Dist::Zilla" : "2.10131",
-            "Moose" : "0.89",
-            "MooseX::StrictConstructor" : "0.08",
+            "Moose" : "1.09",
+            "MooseX::StrictConstructor" : "0.10",
             "MooseX::Types::DateTime" : "0.05",
             "MooseX::Types::Moose" : 0,
             "Readonly" : 0,
-            "Test::More" : 0,
             "namespace::autoclean" : "0.08"
          }
       },
@@ -51,7 +50,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::AutoVersion::Relative" : {
          "file" : "lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm",
-         "version" : "0.01034313"
+         "version" : "0.01035617"
       }
    },
    "release_status" : "stable",
@@ -63,26 +62,27 @@
          "web" : "http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative/tree"
       }
    },
-   "version" : "0.01034313",
+   "version" : "0.01035617",
    "x_BuiltWith" : {
       "modules" : {
-         "DateTime" : "0.60",
+         "DateTime" : "0.61",
          "Dist::Zilla" : "4.101900",
          "Dist::Zilla::Plugin::GatherDir" : "4.101900",
          "Dist::Zilla::Tester" : "4.101900",
          "File::Find" : "1.15",
          "File::Temp" : "0.22",
          "Module::Build" : "0.3607",
-         "Moose" : "1.08",
-         "MooseX::StrictConstructor" : "0.08",
+         "Moose" : "1.09",
+         "MooseX::StrictConstructor" : "0.10",
          "MooseX::Types::DateTime" : "0.05",
-         "MooseX::Types::Moose" : "0.22",
+         "MooseX::Types::Moose" : "0.23",
          "Readonly" : "1.03",
          "Test::More" : "0.94",
          "namespace::autoclean" : "0.11"
       },
       "perl" : "5.012001",
-      "platform" : "linux"
+      "platform" : "linux",
+      "uname" : "Linux 2.6.34-gentoo x86_64 GenuineIntel GNU/Linux\n"
    },
    "x_Dist_Zilla" : {
       "plugins" : [
@@ -129,7 +129,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
             "name" : "@KENTNL/MetaProvides::Package",
-            "version" : "1.11034201"
+            "version" : "1.11034304"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
@@ -168,8 +168,24 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaData::BuiltWith",
+            "config" : {
+               "Dist::Zilla::Plugin::MetaData::BuiltWith" : {
+                  "_stash_key" : "x_BuiltWith",
+                  "show_uname" : 1,
+                  "uname" : {
+                     "uname_args" : [
+                        "-s",
+                        "-o",
+                        "-r",
+                        "-m",
+                        "-i"
+                     ],
+                     "uname_call" : "uname"
+                  }
+               }
+            },
             "name" : "@KENTNL/MetaData::BuiltWith",
-            "version" : "0.01000216"
+            "version" : "0.01005122"
          },
          {
             "class" : "Dist::Zilla::Plugin::CompileTests",
