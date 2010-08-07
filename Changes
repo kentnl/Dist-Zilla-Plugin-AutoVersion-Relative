@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01035617 2010-08-07 17:42:35 Pacific/Auckland
           Depend on latest moose and Mx::StrictConstructor to resolve 
             Deprecation problems.
 
