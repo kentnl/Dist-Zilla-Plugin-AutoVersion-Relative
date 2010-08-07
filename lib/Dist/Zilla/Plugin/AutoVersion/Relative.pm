@@ -50,10 +50,10 @@ if you don't,you be cargo cultin' the bad way
 
 =cut
 
-use Moose;
+use Moose 1.09;
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
-use MooseX::StrictConstructor;
+use MooseX::StrictConstructor 0.10;
 
 use Readonly;
 

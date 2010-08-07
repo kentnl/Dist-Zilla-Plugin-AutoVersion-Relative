@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Depend on latest moose and Mx::StrictConstructor to resolve 
+            Deprecation problems.
 
 0.01034313 2010-07-25 13:17:26 Pacific/Auckland
           Reduced a few dependencies, cleaned surplus T-Deps.
