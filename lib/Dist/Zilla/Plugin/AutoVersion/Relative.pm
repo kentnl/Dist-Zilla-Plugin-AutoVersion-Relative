@@ -150,7 +150,7 @@ if ( __PACKAGE__->can('dump_config') ) {
   around dump_config => sub {
     my ( $orig, $self ) = @_;
     my $config = $self->$orig();
-    $thisconfig = {
+    my $thisconfig = {
       major       => $self->major,
       minor       => $self->minor,
       format      => $self->format,
@@ -161,7 +161,7 @@ if ( __PACKAGE__->can('dump_config') ) {
         hour      => $self->hour,
         minute    => $self->minute,
         second    => $self->second,
-        time_zone => $self->time_zone,
+        time_zone => q{} . $self->time_zone->name,
       },
     };
     $config->{ q{} . __PACKAGE__ } = $thisconfig;
