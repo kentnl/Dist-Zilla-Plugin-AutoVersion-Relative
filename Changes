@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
           Fix namespace::autoclean deps up to get rid of CMOP fail tests.
           Get rid of [=inc::lib]
+          Get rid of old critic test and autogen now
 
 0.01035617 2010-08-07 17:42:35 Pacific/Auckland
           Depend on latest moose and Mx::StrictConstructor to resolve 
