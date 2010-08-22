@@ -146,9 +146,33 @@ has '_release_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build 
 has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
 has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 
+if ( __PACKAGE__->can('dump_config') ) {
+  around dump_config => sub {
+    my ( $orig, $self ) = @_;
+    my $config = $self->$orig();
+    $thisconfig = {
+      major       => $self->major,
+      minor       => $self->minor,
+      format      => $self->format,
+      relative_to => {
+        year      => $self->year,
+        month     => $self->month,
+        day       => $self->day,
+        hour      => $self->hour,
+        minute    => $self->minute,
+        second    => $self->second,
+        time_zone => $self->time_zone,
+      },
+    };
+    $config->{ q{} . __PACKAGE__ } = $thisconfig;
+    return $config;
+  };
+}
+
 =p_builder _build__release_time
 
 =cut
+
 ## no critic (ProhibitUnusedPrivateSubroutines)
 sub _build__release_time {
   my $self = shift;
