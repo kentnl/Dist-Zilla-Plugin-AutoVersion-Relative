@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01035617';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01037118';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -50,6 +50,30 @@ has time_zone => ( isa => TimeZone, coerce => 1,    is      => 'ro', predicate =
 has '_release_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
 has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
 has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
+
+if ( __PACKAGE__->can('dump_config') ) {
+  around dump_config => sub {
+    my ( $orig, $self ) = @_;
+    my $config = $self->$orig();
+    my $thisconfig = {
+      major       => $self->major,
+      minor       => $self->minor,
+      format      => $self->format,
+      relative_to => {
+        year      => $self->year,
+        month     => $self->month,
+        day       => $self->day,
+        hour      => $self->hour,
+        minute    => $self->minute,
+        second    => $self->second,
+        time_zone => q{} . $self->time_zone->name,
+      },
+    };
+    $config->{ q{} . __PACKAGE__ } = $thisconfig;
+    return $config;
+  };
+}
+
 
 ## no critic (ProhibitUnusedPrivateSubroutines)
 sub _build__release_time {
@@ -121,7 +145,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01035617
+version 0.01037118
 
 =head1 SYNOPSIS
 

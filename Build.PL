@@ -10,6 +10,7 @@ my %module_build_args = (
     'Dist::Zilla' => '0',
     'Dist::Zilla::Plugin::GatherDir' => '0',
     'Dist::Zilla::Tester' => '0',
+    'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
     'Module::Build' => '0.3601',
@@ -23,7 +24,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-AutoVersion-Relative',
-  'dist_version' => '0.01035617',
+  'dist_version' => '0.01037118',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::AutoVersion::Relative',
   'recommends' => {},
@@ -36,7 +37,7 @@ my %module_build_args = (
     'MooseX::Types::DateTime' => '0.05',
     'MooseX::Types::Moose' => '0',
     'Readonly' => '0',
-    'namespace::autoclean' => '0.08'
+    'namespace::autoclean' => '0.09'
   },
   'script_files' => []
 );

@@ -52,6 +52,7 @@ eval { $v .= pmver('DateTime','0.50') };
 eval { $v .= pmver('Dist::Zilla','2.10131') };
 eval { $v .= pmver('Dist::Zilla::Plugin::GatherDir','any version') };
 eval { $v .= pmver('Dist::Zilla::Tester','any version') };
+eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Module::Build','0.3601') };
@@ -61,7 +62,7 @@ eval { $v .= pmver('MooseX::Types::DateTime','0.05') };
 eval { $v .= pmver('MooseX::Types::Moose','any version') };
 eval { $v .= pmver('Readonly','any version') };
 eval { $v .= pmver('Test::More','0.88') };
-eval { $v .= pmver('namespace::autoclean','0.08') };
+eval { $v .= pmver('namespace::autoclean','0.09') };
 
 
 

@@ -6,6 +6,7 @@ build_requires:
   Dist::Zilla: 0
   Dist::Zilla::Plugin::GatherDir: 0
   Dist::Zilla::Tester: 0
+  English: 0
   File::Find: 0
   File::Temp: 0
   Module::Build: 0.3601
@@ -13,7 +14,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.101670'
+generated_by: 'Dist::Zilla version 4.102221, CPAN::Meta::Converter version 2.102160'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,7 +23,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: 0.01035617
+    version: 0.01037118
 requires:
   DateTime: 0.50
   Dist::Zilla: 2.10131
@@ -31,17 +32,18 @@ requires:
   MooseX::Types::DateTime: 0.05
   MooseX::Types::Moose: 0
   Readonly: 0
-  namespace::autoclean: 0.08
+  namespace::autoclean: 0.09
 resources:
   homepage: http://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative/tree
   repository: git://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative.git
-version: 0.01035617
+version: 0.01037118
 x_BuiltWith:
   modules:
     DateTime: 0.61
-    Dist::Zilla: 4.101900
-    Dist::Zilla::Plugin::GatherDir: 4.101900
-    Dist::Zilla::Tester: 4.101900
+    Dist::Zilla: 4.102221
+    Dist::Zilla::Plugin::GatherDir: 4.102221
+    Dist::Zilla::Tester: 4.102221
+    English: 1.04
     File::Find: 1.15
     File::Temp: 0.22
     Module::Build: 0.3607
@@ -50,29 +52,42 @@ x_BuiltWith:
     MooseX::Types::DateTime: 0.05
     MooseX::Types::Moose: 0.23
     Readonly: 1.03
-    Test::More: 0.94
+    Test::More: 0.96
     namespace::autoclean: 0.11
   perl: 5.012001
   platform: linux
-  uname: "Linux 2.6.34-gentoo x86_64 GenuineIntel GNU/Linux\n"
+  uname: "Linux 2.6.35-gentoo x86_64 GenuineIntel GNU/Linux\n"
 x_Dist_Zilla:
   plugins:
     -
       class: Dist::Zilla::Plugin::AutoVersion::Relative
+      config:
+        Dist::Zilla::Plugin::AutoVersion::Relative:
+          format: "{{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}"
+          major: 0
+          minor: 1
+          relative_to:
+            day: 23
+            hour: 0
+            minute: 0
+            month: 08
+            second: 0
+            time_zone: Pacific/Auckland
+            year: 2009
       name: '@KENTNL/AutoVersion::Relative'
       version: ~
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@KENTNL/GatherDir'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@KENTNL/MetaConfig'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@KENTNL/PruneCruft'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@KENTNL/GithubMeta'
@@ -80,11 +95,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::License
       name: '@KENTNL/License'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@KENTNL/PkgVersion'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@KENTNL/PodWeaver'
@@ -96,15 +111,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@KENTNL/MetaJSON'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@KENTNL/MetaYAML'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::ModuleBuild
       name: '@KENTNL/ModuleBuild'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::ReadmeFromPod
       name: '@KENTNL/ReadmeFromPod'
@@ -112,15 +127,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@KENTNL/ManifestSkip'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@KENTNL/Manifest'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::AutoPrereq
       name: '@KENTNL/AutoPrereq'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::MetaData::BuiltWith
       config:
@@ -142,17 +157,21 @@ x_Dist_Zilla:
       name: '@KENTNL/CompileTests'
       version: 1.101800
     -
+      class: Dist::Zilla::Plugin::CriticTests
+      name: '@KENTNL/CriticTests'
+      version: 1.102280
+    -
       class: Dist::Zilla::Plugin::MetaTests
       name: '@KENTNL/MetaTests'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@KENTNL/PodCoverageTests'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@KENTNL/PodSyntaxTests'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@KENTNL/ReportVersions::Tiny'
@@ -172,15 +191,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@KENTNL/ExtraTests'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@KENTNL/TestRelease'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@KENTNL/ConfirmRelease'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@KENTNL/Git::Check'
@@ -188,7 +207,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@KENTNL/NextRelease'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@KENTNL/Git::Tag/tag_master'
@@ -208,7 +227,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@KENTNL/UploadToCPAN'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::Twitter
       name: '@KENTNL/Twitter'
@@ -220,25 +239,25 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereq
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.101900
+      version: 4.102221
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.101900
+      version: 4.102221
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.101900
+    version: 4.102221

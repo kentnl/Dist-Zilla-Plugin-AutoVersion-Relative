@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.01037118 2010-08-22 18:25:19 Pacific/Auckland
+          Fix namespace::autoclean deps up to get rid of CMOP fail tests.
+          Get rid of [=inc::lib]
+          Get rid of old critic test and autogen now
+          Add data to MetaConfig reporting.
+
 0.01035617 2010-08-07 17:42:35 Pacific/Auckland
           Depend on latest moose and Mx::StrictConstructor to resolve 
             Deprecation problems.
