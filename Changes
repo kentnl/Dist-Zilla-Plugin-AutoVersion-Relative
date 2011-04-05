@@ -1,6 +1,23 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - Maintainence release only.
+
+ [Dependencies]
+ - Depend on Dzil:Role TextTemplate ( since Dzil 1 )
+ - Depend on Dzil:Role VersonProvider ( since Dzil 1.091250 )
+
+ [Dependencies:Devel]
+ - Advertises @Author::KENTNL for devel.
+
+ [Packaging]
+ - Ship .perltidyrc
+ - Rework Changes for CPAN::Changes form.
+ - Minor crtiic cleanup.
+
+ [Tests]
+ - Added CPAN::Changes tests.
+ - Removed portability tests.
 
 0.01037118 2010-08-22T06:25:19Z
  - Fix namespace::autoclean deps up to get rid of CMOP fail tests.
