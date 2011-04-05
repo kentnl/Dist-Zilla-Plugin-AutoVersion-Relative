@@ -173,7 +173,6 @@ if ( __PACKAGE__->can('dump_config') ) {
 
 =cut
 
-## no critic (ProhibitUnusedPrivateSubroutines)
 sub _build__release_time {
   my $self = shift;
   my $o    = DateTime->new(
