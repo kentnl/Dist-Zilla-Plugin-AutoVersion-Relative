@@ -1,55 +1,73 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-0.01037118 2010-08-22 18:25:19 Pacific/Auckland
-          Fix namespace::autoclean deps up to get rid of CMOP fail tests.
-          Get rid of [=inc::lib]
-          Get rid of old critic test and autogen now
-          Add data to MetaConfig reporting.
+0.01060309 2011-04-05T21:49:08Z
+ - Maintainence release only.
 
-0.01035617 2010-08-07 17:42:35 Pacific/Auckland
-          Depend on latest moose and Mx::StrictConstructor to resolve 
-            Deprecation problems.
+ [Dependencies]
+ - Depend on Dzil:Role TextTemplate ( since Dzil 1 )
+ - Depend on Dzil:Role VersonProvider ( since Dzil 1.091250 )
 
-0.01034313 2010-07-25 13:17:26 Pacific/Auckland
-          Reduced a few dependencies, cleaned surplus T-Deps.
-          Modified docs a little bit.
+ [Dependencies:Devel]
+ - Advertises @Author::KENTNL for devel.
 
-0.01027903 2010-05-23 03:24:03 Pacific/Auckland
-          Moved to @KENTNL, + inc::lib bootstrap
-          Made compatible with DZIL 2.0+
+ [Packaging]
+ - Ship .perltidyrc
+ - Rework Changes for CPAN::Changes form.
+ - Minor crtiic cleanup.
 
-0.01010513 2009-12-04 14:46:57 Pacific/Auckland
-          Drop lots of downstream deps by using only ::DateTime
-          Reduced support for Olsons ( they're not that useful anyway, 
-              they change with daylight saving )
-          Fixed inc:: bootstrapping in build
+ [Tests]
+ - Added CPAN::Changes tests.
+ - Removed portability tests.
 
-0.01010014 2009-11-30 15:44:26 Pacific/Auckland
-          Fix Dep: Readonly
+0.01037118 2010-08-22T06:25:19Z
+ - Fix namespace::autoclean deps up to get rid of CMOP fail tests.
+ - Get rid of =inc::lib
+ - Get rid of old critic test and autogen now
+ - Add data to MetaConfig reporting.
 
-0.01010003 2009-11-30 04:50:13 Pacific/Auckland
-          Reworked the documentation to utilize Pod::Weaver.
-          +perltidy
-          +perlcritic
-          +compiletests
-          -use ok
-          +waverconfig
-          Injected gitty goodness into dist.ini
-          Ported to Pod::Weaver
-          Drop MakeMaker support
+0.01035617 2010-08-07T05:42:35Z
+ - Depend on latest moose and Mx::StrictConstructor to resolve Deprecation
+   problems.
 
-0.01006104 2009-10-21 16:56:39 UTC
-          Use MooseX::StrictConstructor ( Because I keep naming
-            my args wrong )
-          Fixed POD Errors
-          Generated Compile tests
-          +Ship dist.ini
-          Upgraded docs with new Pod::Purler 
+0.01034313 2010-07-25T01:17:26Z
+ - Reduced a few dependencies, cleaned surplus T-Deps.
+ - Modified docs a little bit.
 
-0.01000119 2009-08-24 07:05:45 UTC
-          Fixed Timezone Coercion.
-          Docu Tweak
+0.01027903 2010-05-22T15:24:03Z
+ - Moved to @KENTNL, + inc::lib bootstrap
+ - Made compatible with DZIL 2.0+
 
-0.01000104 2009-08-24 04:05:23 UTC
-          First version.
+0.01010513 2009-12-04T01:46:57Z
+ - Drop lots of downstream deps by using only ::DateTime
+ - Reduced support for Olsons ( they're not that useful anyway, they change
+   with daylight saving )
+ - Fixed inc:: bootstrapping in build
+
+0.01010014 2009-11-30T02:44:26Z
+ - Fix Dep: Readonly
+
+0.01010003 2009-11-29T15:50:13Z
+ - Reworked the documentation to utilize Pod::Weaver.
+ - +perltidy
+ - +perlcritic
+ - +compiletests
+ - -use ok
+ - +waverconfig
+ - Injected gitty goodness into dist.ini
+ - Ported to Pod::Weaver
+ - Drop MakeMaker support
+
+0.01006104 2009-10-21T16:56:39Z
+ - Use MooseX::StrictConstructor ( Because I keep naming my args wrong )
+ - Fixed POD Errors
+ - Generated Compile tests
+ - +Ship dist.ini
+ - Upgraded docs with new Pod::Purler
+
+0.01000119 2009-08-24T07:05:45Z
+ - Fixed Timezone Coercion.
+ - Docu Tweak
+
+0.01000104 2009-08-24T04:05:23Z
+ - First version.
 

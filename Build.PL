@@ -24,7 +24,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-AutoVersion-Relative',
-  'dist_version' => '0.01037118',
+  'dist_version' => '0.01060309',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::AutoVersion::Relative',
   'recommends' => {},
@@ -32,6 +32,8 @@ my %module_build_args = (
   'requires' => {
     'DateTime' => '0.50',
     'Dist::Zilla' => '2.10131',
+    'Dist::Zilla::Role::TextTemplate' => '0',
+    'Dist::Zilla::Role::VersionProvider' => '0',
     'Moose' => '1.09',
     'MooseX::StrictConstructor' => '0.10',
     'MooseX::Types::DateTime' => '0.05',
