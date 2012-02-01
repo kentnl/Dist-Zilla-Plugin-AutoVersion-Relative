@@ -224,12 +224,14 @@ returns the formatted version string to satisfy the roles.
     my $version = $self->fill_in_string(
       $self->format,
       {
-        major    => \( $self->major ),
-        minor    => \( $self->minor ),
-        relative => \( $self->relative ),
-        cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
-        days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-        hours => sub { $h },
+        major             => \( $self->major ),
+        minor             => \( $self->minor ),
+        relative          => \( $self->relative ),
+        cldr              => sub { $self->_current_time->format_cldr( $_[0] ) },
+        days              => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days_square       => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days_accurate     => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
+        hours             => sub { $h },
       },
       { 'package' => "AutoVersion::_${av_track}_", },
     );
@@ -267,13 +269,22 @@ CLDR for the current time. See L<DateTime/format_cldr>
 
 =field days
 
+See L</days_square>
+
+Will be L</days_accurate> in a future release.
+
+=field days_square
+
 An approximation of the number of days passed since milestone.
 
 Note that for this approximation, it is assumed all months are 31 days long, and years as such,
 have 372 days.
 
-This is purely to make sure numbers don't slip backwards, as its currently too hard to work out
-the exact number of days passed. Fixes welcome if you want this to respond properly.
+This is a legacy way of computing dates that is to be superceded by days_accurate in a future release.
+
+=field days_accurate
+
+The number of days passed since the milestone.
 
 =field hours
 

@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+ [Features]
+ - Added "days_accurate" and "days_square" alternative to "days" field.
+   "days_square" is the same as the previous "days" field, but now available separately
+   for backwards compatibility.  Based on code from Karen Etheridge
+
  [Dependencies::Changed]
  - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0  -> v1.2.0
 
