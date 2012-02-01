@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - fixed "days" variable to accurately indicate the exact number of days past
+   since the milestone (Karen Etheridge)
 
 0.02000000 2012-02-02T10:23:49Z
  [Dependencies::Changed]

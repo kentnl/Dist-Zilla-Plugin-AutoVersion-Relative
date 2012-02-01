@@ -228,7 +228,7 @@ returns the formatted version string to satisfy the roles.
         minor             => \( $self->minor ),
         relative          => \( $self->relative ),
         cldr              => sub { $self->_current_time->format_cldr( $_[0] ) },
-        days              => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days              => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
         days_square       => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
         days_accurate     => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
         hours             => sub { $h },
@@ -269,9 +269,9 @@ CLDR for the current time. See L<DateTime/format_cldr>
 
 =field days
 
-See L</days_square>
+See L</days_accurate>
 
-Will be L</days_accurate> in a future release.
+Used to use the algorithm as used in L</days_square> but uses the algorithm  in L</days_accurate> since 0.03000000 
 
 =field days_square
 
@@ -280,7 +280,7 @@ An approximation of the number of days passed since milestone.
 Note that for this approximation, it is assumed all months are 31 days long, and years as such,
 have 372 days.
 
-This is a legacy way of computing dates that is to be superceded by days_accurate in a future release.
+This is a legacy way of computing dates, superceded by days_accurate since 0.03000000
 
 =field days_accurate
 
