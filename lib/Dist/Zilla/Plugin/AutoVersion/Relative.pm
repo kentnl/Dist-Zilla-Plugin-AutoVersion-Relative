@@ -55,12 +55,6 @@ use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
 
-use Readonly;
-
-Readonly my $MONTHS_IN_YEAR => 12;
-
-Readonly my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
-
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
 use DateTime ();
