@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 4;                      # last test to print
+use Test::More tests => 5;                      # last test to print
 use Dist::Zilla::Plugin::AutoVersion::Relative;
 use Dist::Zilla;
 use Dist::Zilla::Tester;
@@ -69,4 +69,27 @@ else {
   diag( 'Expected: <= ' . ( 12 * 31 ) );
 }
 
+{
+    # calculation of variables sent to Text::Template.
+
+    # fake the current time, so this test is consistent
+    # this time corresponds to 2012-03-01 00:00:00 UTC, which using the
+    # "all months have 31 days" rule would give days=31+31+1 - 5 = 58,
+    # but the actual days since the milestone is 31+29+1 - 5 = 56.
+    my $now = DateTime->from_epoch(epoch => 1330560000);
+
+    my $plug = Dist::Zilla::Plugin::AutoVersion::Relative->new(
+      zilla => $dz,
+      plugin_name => 'AutoVersion::Relative',
+      format => '{{ sprintf("%03u", days) }}',
+      year => 2012,
+      month => 01,
+      day => 05,
+      _current_time => $now,
+    );
+
+    is($plug->provide_version, '056', 'day of year is calculated correctly');
+
+    # TODO: test other variables, using other $dt and milestone inputs.
+}
 
