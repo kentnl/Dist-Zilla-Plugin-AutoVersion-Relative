@@ -271,7 +271,7 @@ CLDR for the current time. See L<DateTime/format_cldr>
 
 See L</days_accurate>
 
-Used to use the algorithm as used in L</days_square> but uses the algorithm  in L</days_accurate> since 0.03000000 
+Used to use the algorithm as used in L</days_square> but uses the algorithm  in L</days_accurate> since 0.03000000
 
 =field days_square
 
