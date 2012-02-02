@@ -149,7 +149,7 @@ has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 if ( __PACKAGE__->can('dump_config') ) {
   around dump_config => sub {
     my ( $orig, $self ) = @_;
-    my $config = $self->$orig();
+    my $config     = $self->$orig();
     my $thisconfig = {
       major       => $self->major,
       minor       => $self->minor,
@@ -224,14 +224,14 @@ returns the formatted version string to satisfy the roles.
     my $version = $self->fill_in_string(
       $self->format,
       {
-        major             => \( $self->major ),
-        minor             => \( $self->minor ),
-        relative          => \( $self->relative ),
-        cldr              => sub { $self->_current_time->format_cldr( $_[0] ) },
-        days              => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
-        days_square       => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-        days_accurate     => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
-        hours             => sub { $h },
+        major       => \( $self->major ),
+        minor       => \( $self->minor ),
+        relative    => \( $self->relative ),
+        cldr        => sub { $self->_current_time->format_cldr( $_[0] ) },
+        days        => sub { $self->_current_time->delta_days( $self->_release_time )->in_units('days') },
+        days_square => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days_accurate => sub { $self->_current_time->delta_days( $self->_release_time )->in_units('days') },
+        hours         => sub { $h },
       },
       { 'package' => "AutoVersion::_${av_track}_", },
     );
