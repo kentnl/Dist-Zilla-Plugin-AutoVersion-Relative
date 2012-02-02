@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.03000000 2012-02-02T10:42:53Z
+ [Features]
+ - fixed "days" variable to accurately indicate the exact number of days
+   past since the milestone (Karen Etheridge). For the old way of computing
+   date, please use days_square instead ( available since 0.02000000 )
+
 0.02000000 2012-02-02T10:23:49Z
  [Dependencies::Changed]
  - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0  ->

@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 0.02000000
+    version 0.03000000
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to
@@ -88,9 +88,10 @@ FORMAT FIELDS
     CLDR for the current time. See "format_cldr" in DateTime
 
   days
-    See "days_square"
+    See "days_accurate"
 
-    Will be "days_accurate" in a future release.
+    Used to use the algorithm as used in "days_square" but uses the
+    algorithm in "days_accurate" since 0.03000000
 
   days_square
     An approximation of the number of days passed since milestone.
@@ -98,8 +99,8 @@ FORMAT FIELDS
     Note that for this approximation, it is assumed all months are 31 days
     long, and years as such, have 372 days.
 
-    This is a legacy way of computing dates that is to be superceded by
-    days_accurate in a future release.
+    This is a legacy way of computing dates, superceded by days_accurate
+    since 0.03000000
 
   days_accurate
     The number of days passed since the milestone.
