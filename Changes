@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.03000000 2012-02-02T10:42:53Z
  [Features]
  - fixed "days" variable to accurately indicate the exact number of days
    past since the milestone (Karen Etheridge). For the old way of computing
