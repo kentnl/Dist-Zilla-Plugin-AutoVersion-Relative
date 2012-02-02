@@ -3,7 +3,10 @@ use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.01060309';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.02000000';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -115,12 +118,14 @@ sub _build_relative {
     my $version = $self->fill_in_string(
       $self->format,
       {
-        major    => \( $self->major ),
-        minor    => \( $self->minor ),
-        relative => \( $self->relative ),
-        cldr     => sub { $self->_current_time->format_cldr( $_[0] ) },
-        days     => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-        hours => sub { $h },
+        major             => \( $self->major ),
+        minor             => \( $self->minor ),
+        relative          => \( $self->relative ),
+        cldr              => sub { $self->_current_time->format_cldr( $_[0] ) },
+        days              => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days_square       => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
+        days_accurate     => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
+        hours             => sub { $h },
       },
       { 'package' => "AutoVersion::_${av_track}_", },
     );
@@ -144,7 +149,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.01060309
+version 0.02000000
 
 =head1 SYNOPSIS
 
@@ -260,13 +265,22 @@ CLDR for the current time. See L<DateTime/format_cldr>
 
 =head2 days
 
+See L</days_square>
+
+Will be L</days_accurate> in a future release.
+
+=head2 days_square
+
 An approximation of the number of days passed since milestone.
 
 Note that for this approximation, it is assumed all months are 31 days long, and years as such,
 have 372 days.
 
-This is purely to make sure numbers don't slip backwards, as its currently too hard to work out
-the exact number of days passed. Fixes welcome if you want this to respond properly.
+This is a legacy way of computing dates that is to be superceded by days_accurate in a future release.
+
+=head2 days_accurate
+
+The number of days passed since the milestone.
 
 =head2 hours
 
@@ -310,7 +324,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

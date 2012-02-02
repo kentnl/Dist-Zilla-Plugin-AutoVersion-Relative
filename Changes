@@ -1,5 +1,37 @@
 Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+0.02000000 2012-02-02T10:23:49Z
+ [Dependencies::Changed]
+ - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0  ->
+   v1.2.0
+
+ [Dependencies::New]
+ - runtime requires: Perl 5.006
+ - runtime requires: strict
+ - runtime requires: warnings
+
+ [Dependencies::Removed]
+ - test requires: English
+
+ [Features]
+ - Added "days_accurate" and "days_square" alternative to "days" field.
+   "days_square" is the same as the previous "days" field, but now
+   available separately for backwards compatibility.  Based on code from
+   Karen Etheridge
+
+ [Internals]
+ - All namespaces declare $AUTHORITY="cpan:KENTNL";
+ - Version declarations moved out of BEGIN
+
+ [Packaging]
+ - Toolkit Upgrade.
+ - Update LICENSE ( Year, Indentation, Address )
+ - Extra Tests moved to xt/
+ - Repo urls all moved to https://
+ - Declares x_authority
+ - Uses git based versioning now.
+ - Nolonger self-feeds via Bootstrap::lib
+
 0.01060309 2011-04-05T21:49:08Z
  - Maintainence release only.
 
