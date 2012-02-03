@@ -22,7 +22,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: 0.03000000
+    version: 0.03000001
 requires:
   DateTime: 0.50
   Dist::Zilla: 2.10131
@@ -40,7 +40,7 @@ requires:
 resources:
   homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative
   repository: https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative.git
-version: 0.03000000
+version: 0.03000001
 x_BuiltWith:
   modules:
     DateTime: 0.72

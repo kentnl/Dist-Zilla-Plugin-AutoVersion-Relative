@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Plugin::AutoVersion::Relative::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000000';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000001';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -57,7 +57,7 @@ has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 if ( __PACKAGE__->can('dump_config') ) {
   around dump_config => sub {
     my ( $orig, $self ) = @_;
-    my $config = $self->$orig();
+    my $config     = $self->$orig();
     my $thisconfig = {
       major       => $self->major,
       minor       => $self->minor,
@@ -113,22 +113,31 @@ sub _build_relative {
   sub provide_version {
     my ($self) = @_;
     $av_track++;
+
     my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
-    my $version = $self->fill_in_string(
-      $self->format,
-      {
-        major             => \( $self->major ),
-        minor             => \( $self->minor ),
-        relative          => \( $self->relative ),
-        cldr              => sub { $self->_current_time->format_cldr( $_[0] ) },
-        days              => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
-        days_square       => sub { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-        days_accurate     => sub { $self->_current_time->delta_days($self->_release_time)->in_units('days') },
-        hours             => sub { $h },
+    my ($days_square) = sub() {
+      ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
+    };
+    my ($days_accurate) = sub() {
+      $self->_current_time->delta_days( $self->_release_time )->in_units('days');
+    };
+
+    my $tokens = {
+      major    => \( $self->major ),
+      minor    => \( $self->minor ),
+      relative => \( $self->relative ),
+      cldr     => sub($) {
+        my ($format) = shift;
+        $self->_current_time->format_cldr($format);
       },
-      { 'package' => "AutoVersion::_${av_track}_", },
-    );
+      days          => $days_accurate,
+      days_square   => $days_square,
+      days_accurate => $days_accurate,
+      hours         => sub() { $h },
+    };
+
+    my $version = $self->fill_in_string( $self->format, $tokens, { 'package' => "AutoVersion::_${av_track}_", }, );
     return $version;
   }
 }
@@ -149,7 +158,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.03000000
+version 0.03000001
 
 =head1 SYNOPSIS
 
