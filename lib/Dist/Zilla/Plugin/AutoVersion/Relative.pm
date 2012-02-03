@@ -222,23 +222,24 @@ returns the formatted version string to satisfy the roles.
 
     my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
-    my ($days_square)   = ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
-    my ($days_accurate) = $self->_current_time->delta_days( $self->_release_time )->in_units('days');
-    my ($major)         = $self->major;
-    my ($minor)         = $self->minor;
-    my ($relative)      = $self->relative;
+    my ($days_square) = sub() {
+      ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
+    };
+    my ($days_accurate) = sub() {
+      $self->_current_time->delta_days( $self->_release_time )->in_units('days');
+    };
 
     my $tokens = {
-      major    => sub() { $major },
-      minor    => sub() { $minor },
-      relative => sub() { $relative },
+      major    => \( $self->major ),
+      minor    => \( $self->minor ),
+      relative => \( $self->relative ),
       cldr     => sub($) {
         my ($format) = shift;
         $self->_current_time->format_cldr($format);
       },
-      days          => sub() { $days_accurate },
-      days_square   => sub() { $days_square },
-      days_accurate => sub() { $days_accurate },
+      days          => $days_accurate,
+      days_square   => $days_square,
+      days_accurate => $days_accurate,
       hours         => sub() { $h },
     };
 
