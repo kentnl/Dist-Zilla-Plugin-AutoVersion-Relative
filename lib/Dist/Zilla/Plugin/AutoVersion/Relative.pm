@@ -219,22 +219,30 @@ returns the formatted version string to satisfy the roles.
   sub provide_version {
     my ($self) = @_;
     $av_track++;
+
     my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
-    my $version = $self->fill_in_string(
-      $self->format,
-      {
-        major       => \( $self->major ),
-        minor       => \( $self->minor ),
-        relative    => \( $self->relative ),
-        cldr        => sub($) { $self->_current_time->format_cldr( $_[0] ) },
-        days        => sub() { $self->_current_time->delta_days( $self->_release_time )->in_units('days') },
-        days_square => sub() { ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d },
-        days_accurate => sub() { $self->_current_time->delta_days( $self->_release_time )->in_units('days') },
-        hours         => sub() { $h },
+    my ($days_square)   = ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
+    my ($days_accurate) = $self->_current_time->delta_days( $self->_release_time )->in_units('days');
+    my ($major)         = $self->major;
+    my ($minor)         = $self->minor;
+    my ($relative)      = $self->relative;
+
+    my $tokens = {
+      major    => sub() { $major },
+      minor    => sub() { $minor },
+      relative => sub() { $relative },
+      cldr     => sub($) {
+        my ($format) = shift;
+        $self->_current_time->format_cldr($format);
       },
-      { 'package' => "AutoVersion::_${av_track}_", },
-    );
+      days          => sub() { $days_accurate },
+      days_square   => sub() { $days_square },
+      days_accurate => sub() { $days_accurate },
+      hours         => sub() { $h },
+    };
+
+    my $version = $self->fill_in_string( $self->format, $tokens, { 'package' => "AutoVersion::_${av_track}_", }, );
     return $version;
   }
 }
