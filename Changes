@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Bugs]
+ - Added prototypes on all tokens so "foo + 1" is "foo() + 1" not "foo(+1)"
+   ( Thanks Karen Etheridge )
 
 0.03000000 2012-02-02T10:42:53Z
  [Features]
