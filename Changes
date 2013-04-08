@@ -1,0 +1,118 @@
+Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
+
+0.03000002 2013-04-08T18:01:52Z
+
+0.03000001 2012-02-03T02:19:44Z
+ [Bugs]
+ - Added prototypes on all tokens so "foo + 1" is "foo() + 1" not "foo(+1)"
+   ( Thanks Karen Etheridge )
+
+0.03000000 2012-02-02T10:42:53Z
+ [Features]
+ - fixed "days" variable to accurately indicate the exact number of days
+   past since the milestone (Karen Etheridge). For the old way of computing
+   date, please use days_square instead ( available since 0.02000000 )
+
+0.02000000 2012-02-02T10:23:49Z
+ [Dependencies::Changed]
+ - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0  ->
+   v1.2.0
+
+ [Dependencies::New]
+ - runtime requires: Perl 5.006
+ - runtime requires: strict
+ - runtime requires: warnings
+
+ [Dependencies::Removed]
+ - test requires: English
+
+ [Features]
+ - Added "days_accurate" and "days_square" alternative to "days" field.
+   "days_square" is the same as the previous "days" field, but now
+   available separately for backwards compatibility.  Based on code from
+   Karen Etheridge
+
+ [Internals]
+ - All namespaces declare $AUTHORITY="cpan:KENTNL";
+ - Version declarations moved out of BEGIN
+
+ [Packaging]
+ - Toolkit Upgrade.
+ - Update LICENSE ( Year, Indentation, Address )
+ - Extra Tests moved to xt/
+ - Repo urls all moved to https://
+ - Declares x_authority
+ - Uses git based versioning now.
+ - Nolonger self-feeds via Bootstrap::lib
+
+0.01060309 2011-04-05T21:49:08Z
+ - Maintainence release only.
+
+ [Dependencies]
+ - Depend on Dzil:Role TextTemplate ( since Dzil 1 )
+ - Depend on Dzil:Role VersonProvider ( since Dzil 1.091250 )
+
+ [Dependencies:Devel]
+ - Advertises @Author::KENTNL for devel.
+
+ [Packaging]
+ - Ship .perltidyrc
+ - Rework Changes for CPAN::Changes form.
+ - Minor crtiic cleanup.
+
+ [Tests]
+ - Added CPAN::Changes tests.
+ - Removed portability tests.
+
+0.01037118 2010-08-22T06:25:19Z
+ - Fix namespace::autoclean deps up to get rid of CMOP fail tests.
+ - Get rid of =inc::lib
+ - Get rid of old critic test and autogen now
+ - Add data to MetaConfig reporting.
+
+0.01035617 2010-08-07T05:42:35Z
+ - Depend on latest moose and Mx::StrictConstructor to resolve Deprecation
+   problems.
+
+0.01034313 2010-07-25T01:17:26Z
+ - Reduced a few dependencies, cleaned surplus T-Deps.
+ - Modified docs a little bit.
+
+0.01027903 2010-05-22T15:24:03Z
+ - Moved to @KENTNL, + inc::lib bootstrap
+ - Made compatible with DZIL 2.0+
+
+0.01010513 2009-12-04T01:46:57Z
+ - Drop lots of downstream deps by using only ::DateTime
+ - Reduced support for Olsons ( they're not that useful anyway, they change
+   with daylight saving )
+ - Fixed inc:: bootstrapping in build
+
+0.01010014 2009-11-30T02:44:26Z
+ - Fix Dep: Readonly
+
+0.01010003 2009-11-29T15:50:13Z
+ - Reworked the documentation to utilize Pod::Weaver.
+ - +perltidy
+ - +perlcritic
+ - +compiletests
+ - -use ok
+ - +waverconfig
+ - Injected gitty goodness into dist.ini
+ - Ported to Pod::Weaver
+ - Drop MakeMaker support
+
+0.01006104 2009-10-21T16:56:39Z
+ - Use MooseX::StrictConstructor ( Because I keep naming my args wrong )
+ - Fixed POD Errors
+ - Generated Compile tests
+ - +Ship dist.ini
+ - Upgraded docs with new Pod::Purler
+
+0.01000119 2009-08-24T07:05:45Z
+ - Fixed Timezone Coercion.
+ - Docu Tweak
+
+0.01000104 2009-08-24T04:05:23Z
+ - First version.
+
