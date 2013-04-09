@@ -285,7 +285,7 @@ An approximation of the number of days passed since milestone.
 Note that for this approximation, it is assumed all months are 31 days long, and years as such,
 have 372 days.
 
-This is a legacy way of computing dates, superceded by days_accurate since 0.03000000
+This is a legacy way of computing dates, superseded by days_accurate since 0.03000000
 
 =head2 days_accurate
 
