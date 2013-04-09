@@ -1,4 +1,39 @@
-Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
+﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
+
+0.03000002 2013-04-09T02:50:19Z
+ - Maintenance Release for MB 0.4004
+
+ [Dependencies::Added / develop requires]
+ - Pod::Coverage::TrustPod
+ - Test::CPAN::Meta
+ - Test::Pod 1.41
+ - Test::Pod::Coverage 1.08
+ - version 0.9901
+
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.3601 → 0.4004
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.3601 → 0.4004
+
+ [Dependencies::Changed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.7.2
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.88 → 0.98
+
+ [Documentation]
+ - Update Copyright year
+ - Add README.mkdn
+
+ [Meta]
+ - bugtracker to github issues
+
+ [Packaging]
+ - Utilise test_requires in Build.PL
 
 0.03000001 2012-02-03T02:19:44Z
  [Bugs]
@@ -13,8 +48,8 @@ Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
 0.02000000 2012-02-02T10:23:49Z
  [Dependencies::Changed]
- - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0  ->
-   v1.2.0
+ - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL
+   v1.0.0 → v1.2.0
 
  [Dependencies::New]
  - runtime requires: Perl 5.006

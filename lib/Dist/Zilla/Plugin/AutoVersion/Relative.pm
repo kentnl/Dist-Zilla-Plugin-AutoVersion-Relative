@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Plugin::AutoVersion::Relative::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000001';
+  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000002';
 }
 
 # ABSTRACT: Time-Relative versioning
@@ -148,8 +148,8 @@ __PACKAGE__->meta->make_immutable;
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -158,7 +158,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.03000001
+version 0.03000002
 
 =head1 SYNOPSIS
 
@@ -285,7 +285,7 @@ An approximation of the number of days passed since milestone.
 Note that for this approximation, it is assumed all months are 31 days long, and years as such,
 have 372 days.
 
-This is a legacy way of computing dates, superceded by days_accurate since 0.03000000
+This is a legacy way of computing dates, superseded by days_accurate since 0.03000000
 
 =head2 days_accurate
 
@@ -333,10 +333,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
