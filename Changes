@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-0.03000002 2013-04-09T02:16:56Z
+0.03000002 2013-04-09T02:18:37Z
  - Maintenance Release for MB 0.4004
 
  [Dependencies::Added / develop requires]
@@ -27,6 +27,7 @@
 
  [Documentation]
  - Update Copyright year
+ - Add README.mkdn
 
  [Meta]
  - bugtracker to github issues
