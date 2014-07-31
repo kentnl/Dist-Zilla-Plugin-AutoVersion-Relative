@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.000000 2014-07-31T05:34:43Z
+1.000000 2014-07-31T05:37:28Z
  [00 Major]
  - Changes that may break downstreams who work by hand.
 
