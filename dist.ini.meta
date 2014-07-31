@@ -9,7 +9,7 @@ copyright_holder = Kent Fredric
 git_versions = 1
 twitter_hash_tags = #cpan #perl
 normal_form = numify
-mantissa    = 8
+mantissa    = 6
 bumpversions = 1
 
 ;version_rel_year = 2009

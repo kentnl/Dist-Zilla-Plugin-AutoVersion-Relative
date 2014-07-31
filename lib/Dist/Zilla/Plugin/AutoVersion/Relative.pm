@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
-our $VERSION = '0.03000003';
+our $VERSION = '1.000000';
 
 # ABSTRACT: Time-Relative versioning
 

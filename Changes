@@ -1,6 +1,14 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Major]
+ - Changes that may break downstreams who work by hand.
+
+ [01 Version Scheme]
+ - Uses x.yyyyyy (Mantissa 6) instead of x.yyyyyyyy ( Mantissa 8 )
+ - This is the primary reason for the 1.x on the box.
+ - https://questhub.io/realm/perl/quest/5388d3a9bbd0be2224000129
+
  [Dependencies::Stats]
  - Dependencies changed since 0.03000002, see misc/*.deps* for details
  - build: ↑1
