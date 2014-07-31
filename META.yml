@@ -41,9 +41,9 @@ requires:
   strict: '0'
   warnings: '0'
 resources:
-  bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative/issues
-  homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative
-  repository: https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative.git
+  bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative/issues
+  homepage: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative
+  repository: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative.git
 version: '0.03000003'
 x_BuiltWith:
   modules:
@@ -287,6 +287,10 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
+              version: '4.006'
+            -
+              class: Pod::Weaver::Plugin::SingleEncoding
+              name: -SingleEncoding
               version: '4.006'
             -
               class: Pod::Weaver::Section::Name

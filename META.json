@@ -123,13 +123,13 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative/issues"
+         "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative/issues"
       },
-      "homepage" : "https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative",
+      "homepage" : "https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative.git",
-         "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-AutoVersion-Relative"
+         "url" : "https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative.git",
+         "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative"
       }
    },
    "version" : "0.03000003",
@@ -424,6 +424,11 @@
                      {
                         "class" : "Pod::Weaver::Plugin::H1Nester",
                         "name" : "@CorePrep/H1Nester",
+                        "version" : "4.006"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Plugin::SingleEncoding",
+                        "name" : "-SingleEncoding",
                         "version" : "4.006"
                      },
                      {
