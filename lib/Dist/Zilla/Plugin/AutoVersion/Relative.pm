@@ -2,16 +2,51 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000002';
-}
-
+$Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000003';
 # ABSTRACT: Time-Relative versioning
 
 # $Id:$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,6 +67,21 @@ use DateTime ();
 use namespace::autoclean;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has major => ( isa => Int, is => 'ro', default => 1 );
 has minor => ( isa => Int, is => 'ro', default => 1 );
 has format => (    ## no critic (RequireInterpolationOfMetachars)
@@ -41,6 +91,35 @@ has format => (    ## no critic (RequireInterpolationOfMetachars)
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has year      => ( isa => Int,      is     => 'ro', default => 2000 );
 has month     => ( isa => Int,      is     => 'ro', default => 1 );
 has day       => ( isa => Int,      is     => 'ro', default => 1 );
@@ -48,6 +127,19 @@ has hour      => ( isa => Int,      is     => 'ro', default => 0 );
 has minute    => ( isa => Int,      is     => 'ro', default => 0 );
 has second    => ( isa => Int,      is     => 'ro', default => 0 );
 has time_zone => ( isa => TimeZone, coerce => 1,    is      => 'ro', predicate => 'has_time_zone' );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has '_release_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
@@ -78,6 +170,9 @@ if ( __PACKAGE__->can('dump_config') ) {
 }
 
 
+
+
+
 sub _build__release_time {
   my $self = shift;
   my $o    = DateTime->new(
@@ -93,6 +188,9 @@ sub _build__release_time {
 }
 
 
+
+
+
 sub _build__current_time {
   my $self = shift;
   my $o    = DateTime->now;
@@ -100,11 +198,19 @@ sub _build__current_time {
 }
 
 
+
+
+
 sub _build_relative {
   my $self = shift;
   my $x    = $self->_current_time->subtract_datetime( $self->_release_time );
   return $x;
 }
+
+
+
+
+
 
 
 {
@@ -143,6 +249,58 @@ sub _build_relative {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
@@ -158,7 +316,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.03000002
+version 0.03000003
 
 =head1 SYNOPSIS
 
@@ -333,7 +491,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
