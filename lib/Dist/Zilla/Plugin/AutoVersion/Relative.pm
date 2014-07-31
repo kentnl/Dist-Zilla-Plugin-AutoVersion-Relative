@@ -179,7 +179,7 @@ if ( __PACKAGE__->can('dump_config') ) {
 
 sub _build__release_time {
   my $self = shift;
-  my $o    = DateTime->new(
+  return DateTime->new(
     year   => $self->year,
     month  => $self->month,
     day    => $self->day,
@@ -188,7 +188,6 @@ sub _build__release_time {
     second => $self->second,
     ( ( $self->has_time_zone ) ? ( time_zone => $self->time_zone ) : () ),
   );
-  return $o;
 }
 
 =p_builder _build__current_time
@@ -196,9 +195,7 @@ sub _build__release_time {
 =cut
 
 sub _build__current_time {
-  my $self = shift;
-  my $o    = DateTime->now;
-  return $o;
+  return DateTime->now;
 }
 
 =p_builder _build_relative
@@ -224,7 +221,7 @@ returns the formatted version string to satisfy the roles.
     my ($self) = @_;
     $av_track++;
 
-    my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
+    my ( $y, $m, $d, $h, undef, undef ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
     my ($days_square) = sub() {
       ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
