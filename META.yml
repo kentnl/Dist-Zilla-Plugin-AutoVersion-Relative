@@ -53,6 +53,7 @@ x_BuiltWith:
     Dist::Zilla::App::Command::bakeini: '0.001001'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.020'
+    Dist::Zilla::Plugin::BumpVersionAfterRelease: '0.002'
     Dist::Zilla::Plugin::ConfirmRelease: '5.020'
     Dist::Zilla::Plugin::EOLTests: '0.02'
     Dist::Zilla::Plugin::GatherDir: '5.020'
@@ -61,7 +62,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Git::CommitBuild: '2.023'
     Dist::Zilla::Plugin::Git::GatherDir: '2.023'
     Dist::Zilla::Plugin::Git::NextRelease: '0.002011'
-    Dist::Zilla::Plugin::Git::NextVersion::Sanitized: '0.002000'
     Dist::Zilla::Plugin::Git::Tag: '2.023'
     Dist::Zilla::Plugin::GithubMeta: '0.46'
     Dist::Zilla::Plugin::License: '5.020'
@@ -75,7 +75,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::MetaYAML: '5.020'
     Dist::Zilla::Plugin::MinimumPerl: '1.003'
     Dist::Zilla::Plugin::ModuleBuild: '5.020'
-    Dist::Zilla::Plugin::PkgVersion: '5.020'
     Dist::Zilla::Plugin::PodCoverageTests: '5.020'
     Dist::Zilla::Plugin::PodSyntaxTests: '5.020'
     Dist::Zilla::Plugin::PodWeaver: '4.005'
@@ -84,6 +83,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled: '0.002000'
     Dist::Zilla::Plugin::ReadmeAnyFromPod: '0.141760'
     Dist::Zilla::Plugin::ReadmeFromPod: '0.21'
+    Dist::Zilla::Plugin::RewriteVersion::Sanitized: '0.001001'
     Dist::Zilla::Plugin::RunExtraTests: '0.022'
     Dist::Zilla::Plugin::Test::CPAN::Changes: '0.008'
     Dist::Zilla::Plugin::Test::Compile::PerFile: '0.002001'
@@ -136,20 +136,6 @@ x_Dist_Zilla:
   perl:
     version: '5.021001'
   plugins:
-    -
-      class: Dist::Zilla::Plugin::Git::NextVersion::Sanitized
-      config:
-        Dist::Zilla::Plugin::Git::NextVersion:
-          first_version: '0.001000'
-          version_by_branch: '0'
-          version_regexp: (?^u:^(.*)-source$)
-        Dist::Zilla::Role::Git::Repo:
-          repo_root: .
-        Dist::Zilla::Role::Version::Sanitize:
-          mantissa: '8'
-          normal_form: numify
-      name: '@Author::KENTNL/Git::NextVersion::Sanitized'
-      version: '0.002000'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Author::KENTNL/MetaConfig'
@@ -269,9 +255,13 @@ x_Dist_Zilla:
       name: '@Author::KENTNL/ManifestSkip'
       version: '5.020'
     -
-      class: Dist::Zilla::Plugin::PkgVersion
-      name: '@Author::KENTNL/PkgVersion'
-      version: '5.020'
+      class: Dist::Zilla::Plugin::RewriteVersion::Sanitized
+      config:
+        Dist::Zilla::Role::Version::Sanitize:
+          mantissa: '8'
+          normal_form: numify
+      name: '@Author::KENTNL/RewriteVersion::Sanitized'
+      version: '0.001001'
     -
       class: Dist::Zilla::Plugin::PodWeaver
       config:
@@ -474,6 +464,10 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Git::NextRelease
       name: '@Author::KENTNL/Git::NextRelease'
       version: '0.002011'
+    -
+      class: Dist::Zilla::Plugin::BumpVersionAfterRelease
+      name: '@Author::KENTNL/BumpVersionAfterRelease'
+      version: '0.002'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:

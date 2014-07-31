@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-$Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000003';
+
+our $VERSION = '0.03000003';
+
 # ABSTRACT: Time-Relative versioning
 
 # $Id:$
