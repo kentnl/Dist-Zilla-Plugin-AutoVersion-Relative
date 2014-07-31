@@ -1,29 +1,36 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
+1.000000 2014-07-31T05:37:28Z
+ [00 Major]
+ - Changes that may break downstreams who work by hand.
+
+ [01 Version Scheme]
+ - Uses x.yyyyyy (Mantissa 6) instead of x.yyyyyyyy ( Mantissa 8 )
+ - This is the primary reason for the 1.x on the box.
+ - https://questhub.io/realm/perl/quest/5388d3a9bbd0be2224000129
+
+ [02 Toolkit]
+ - Now uses ExtUtils::MakeMaker
+ - "Latest" dependenceis are now only recommendations (softened)
+ - https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.03000002, see misc/*.deps* for details
+ - build: -1
+ - configure: +1 -1 (recommends: +1)
+ - develop: +44 -2 (recommends: -1, suggests: +1 ↑1)
+ - runtime: +1 ↑1
+ - test: +5 ↑1 ↓1 -2 (recommends: +3)
+
 0.03000002 2013-04-09T02:50:19Z
  - Maintenance Release for MB 0.4004
 
- [Dependencies::Added / develop requires]
- - Pod::Coverage::TrustPod
- - Test::CPAN::Meta
- - Test::Pod 1.41
- - Test::Pod::Coverage 1.08
- - version 0.9901
-
- [Dependencies::Changed / build requires]
- - Module::Build 0.3601 → 0.4004
-
- [Dependencies::Changed / configure requires]
- - Module::Build 0.3601 → 0.4004
-
- [Dependencies::Changed / develop recommends]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.7.2
-
- [Dependencies::Changed / test requires]
- - Test::More 0.88 → 0.98
+ [Dependencies::Stats]
+ - Dependencies changed since 0.03000001, see misc/*.deps* for details
+ - build: ↑1
+ - configure: ↑1
+ - develop: +5 (recommends: ↑1, suggests: ↑1)
+ - test: ↑1
 
  [Documentation]
  - Update Copyright year
@@ -37,33 +44,23 @@
 
 0.03000001 2012-02-03T02:19:44Z
  [Bugs]
- - Added prototypes on all tokens so "foo + 1" is "foo() + 1" not "foo(+1)"
-   ( Thanks Karen Etheridge )
+ - Added prototypes on all tokens so "foo + 1" is "foo() + 1" not "foo(+1)" ( Thanks Karen Etheridge )
 
 0.03000000 2012-02-02T10:42:53Z
  [Features]
- - fixed "days" variable to accurately indicate the exact number of days
-   past since the milestone (Karen Etheridge). For the old way of computing
-   date, please use days_square instead ( available since 0.02000000 )
+ - fixed "days" variable to accurately indicate the exact number of days past since the milestone (Karen Etheridge).
+   For the old way of computing date, please use days_square instead ( available since 0.02000000 )
 
 0.02000000 2012-02-02T10:23:49Z
- [Dependencies::Changed]
- - develop suggests: Dist::Zilla::PluginBundle::Author::KENTNL
-   v1.0.0 → v1.2.0
-
- [Dependencies::New]
- - runtime requires: Perl 5.006
- - runtime requires: strict
- - runtime requires: warnings
-
- [Dependencies::Removed]
- - test requires: English
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01060309, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
+ - runtime: +3
+ - test: -1
 
  [Features]
- - Added "days_accurate" and "days_square" alternative to "days" field.
-   "days_square" is the same as the previous "days" field, but now
-   available separately for backwards compatibility.  Based on code from
-   Karen Etheridge
+ - Added "days_accurate" and "days_square" alternative to "days" field. "days_square" is the same as the previous
+   "days" field, but now available separately for backwards compatibility.  Based on code from Karen Etheridge
 
  [Internals]
  - All namespaces declare $AUTHORITY="cpan:KENTNL";
@@ -81,12 +78,10 @@
 0.01060309 2011-04-05T21:49:08Z
  - Maintainence release only.
 
- [Dependencies]
- - Depend on Dzil:Role TextTemplate ( since Dzil 1 )
- - Depend on Dzil:Role VersonProvider ( since Dzil 1.091250 )
-
- [Dependencies:Devel]
- - Advertises @Author::KENTNL for devel.
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01037118, see misc/*.deps* for details
+ - develop: +1 (recommends: +1, suggests: +1)
+ - runtime: +2
 
  [Packaging]
  - Ship .perltidyrc
@@ -103,9 +98,13 @@
  - Get rid of old critic test and autogen now
  - Add data to MetaConfig reporting.
 
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01035617, see misc/*.deps* for details
+ - runtime: ↑1
+ - test: +1
+
 0.01035617 2010-08-07T05:42:35Z
- - Depend on latest moose and Mx::StrictConstructor to resolve Deprecation
-   problems.
+ - Depend on latest moose and Mx::StrictConstructor to resolve Deprecation problems.
 
 0.01034313 2010-07-25T01:17:26Z
  - Reduced a few dependencies, cleaned surplus T-Deps.
@@ -115,14 +114,27 @@
  - Moved to @KENTNL, + inc::lib bootstrap
  - Made compatible with DZIL 2.0+
 
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01010513, see misc/*.deps* for details
+ - build: +7 ↑1
+ - configure: ↑1
+ - runtime: ↑1
+
 0.01010513 2009-12-04T01:46:57Z
  - Drop lots of downstream deps by using only ::DateTime
- - Reduced support for Olsons ( they're not that useful anyway, they change
-   with daylight saving )
+ - Reduced support for Olsons ( they're not that useful anyway, they change with daylight saving )
  - Fixed inc:: bootstrapping in build
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01010014, see misc/*.deps* for details
+ - runtime: +1 -1
 
 0.01010014 2009-11-30T02:44:26Z
  - Fix Dep: Readonly
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01010003, see misc/*.deps* for details
+ - runtime: +1
 
 0.01010003 2009-11-29T15:50:13Z
  - Reworked the documentation to utilize Pod::Weaver.
@@ -135,12 +147,21 @@
  - Ported to Pod::Weaver
  - Drop MakeMaker support
 
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01006104, see misc/*.deps* for details
+ - build: +1
+ - configure: +1
+
 0.01006104 2009-10-21T16:56:39Z
  - Use MooseX::StrictConstructor ( Because I keep naming my args wrong )
  - Fixed POD Errors
  - Generated Compile tests
  - +Ship dist.ini
  - Upgraded docs with new Pod::Purler
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01000119, see misc/*.deps* for details
+ - runtime: +1
 
 0.01000119 2009-08-24T07:05:45Z
  - Fixed Timezone Coercion.

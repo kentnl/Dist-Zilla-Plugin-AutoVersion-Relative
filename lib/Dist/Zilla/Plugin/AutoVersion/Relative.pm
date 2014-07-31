@@ -1,26 +1,65 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
-BEGIN {
-  $Dist::Zilla::Plugin::AutoVersion::Relative::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Plugin::AutoVersion::Relative::VERSION = '0.03000002';
-}
+
+our $VERSION = '1.000000';
 
 # ABSTRACT: Time-Relative versioning
 
-# $Id:$
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Moose 1.09;
-use MooseX::Types::Moose qw( :all );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Moose 1.09 qw( has around with );
+use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
 
-use Readonly;
+use Readonly qw( Readonly );
 
 Readonly my $MONTHS_IN_YEAR => 12;
 
@@ -32,6 +71,21 @@ use DateTime ();
 use namespace::autoclean;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has major => ( isa => Int, is => 'ro', default => 1 );
 has minor => ( isa => Int, is => 'ro', default => 1 );
 has format => (    ## no critic (RequireInterpolationOfMetachars)
@@ -41,6 +95,35 @@ has format => (    ## no critic (RequireInterpolationOfMetachars)
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has year      => ( isa => Int,      is     => 'ro', default => 2000 );
 has month     => ( isa => Int,      is     => 'ro', default => 1 );
 has day       => ( isa => Int,      is     => 'ro', default => 1 );
@@ -48,6 +131,19 @@ has hour      => ( isa => Int,      is     => 'ro', default => 0 );
 has minute    => ( isa => Int,      is     => 'ro', default => 0 );
 has second    => ( isa => Int,      is     => 'ro', default => 0 );
 has time_zone => ( isa => TimeZone, coerce => 1,    is      => 'ro', predicate => 'has_time_zone' );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has '_release_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build => 1 );
@@ -78,9 +174,12 @@ if ( __PACKAGE__->can('dump_config') ) {
 }
 
 
+
+
+
 sub _build__release_time {
   my $self = shift;
-  my $o    = DateTime->new(
+  return DateTime->new(
     year   => $self->year,
     month  => $self->month,
     day    => $self->day,
@@ -89,15 +188,18 @@ sub _build__release_time {
     second => $self->second,
     ( ( $self->has_time_zone ) ? ( time_zone => $self->time_zone ) : () ),
   );
-  return $o;
 }
+
+
+
 
 
 sub _build__current_time {
-  my $self = shift;
-  my $o    = DateTime->now;
-  return $o;
+  return DateTime->now;
 }
+
+
+
 
 
 sub _build_relative {
@@ -107,6 +209,11 @@ sub _build_relative {
 }
 
 
+
+
+
+
+
 {
   my $av_track = 0;
 
@@ -114,7 +221,7 @@ sub _build_relative {
     my ($self) = @_;
     $av_track++;
 
-    my ( $y, $m, $d, $h, $mm, $s ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
+    my ( $y, $m, $d, $h, undef, undef ) = $self->relative->in_units( 'years', 'months', 'days', 'hours', 'minutes', 'seconds' );
 
     my ($days_square) = sub() {
       ( ( ( ( $y * $MONTHS_IN_YEAR ) + $m ) * $DAYS_IN_MONTH ) + $d );
@@ -143,6 +250,58 @@ sub _build_relative {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
@@ -152,13 +311,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 0.03000002
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -333,7 +494,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
