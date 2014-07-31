@@ -13,6 +13,7 @@ mantissa    = 6
 bumpversions = 1
 toolkit          = eumm
 toolkit_hardness = soft
+copyfiles        = LICENSE
 
 ;version_rel_year = 2009
 ;version_rel_month = 08
