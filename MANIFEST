@@ -12,10 +12,12 @@ README
 dist.ini
 dist.ini.meta
 lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
+maint/perlcritic.rc.gen.pl
 misc/Changes.deps
 misc/Changes.deps.all
 misc/Changes.deps.dev
 misc/Changes.deps.opt
+misc/perlcritic.deps
 perlcritic.rc
 t/00-compile/lib_Dist_Zilla_Plugin_AutoVersion_Relative_pm.t
 t/00-report-prereqs.dd

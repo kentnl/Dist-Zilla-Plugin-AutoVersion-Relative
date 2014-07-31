@@ -25,7 +25,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: '0.03000003'
+    version: '1.000000'
 requires:
   DateTime: '0.50'
   Dist::Zilla: '2.10131'
@@ -44,7 +44,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative.git
-version: '0.03000003'
+version: '1.000000'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -258,7 +258,7 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::RewriteVersion::Sanitized
       config:
         Dist::Zilla::Role::Version::Sanitize:
-          mantissa: '8'
+          mantissa: '6'
           normal_form: numify
       name: '@Author::KENTNL/RewriteVersion::Sanitized'
       version: '0.001001'
@@ -452,7 +452,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: 0.03000003-source
+          tag: 1.000000-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -506,7 +506,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: '0'
-          tag: '0.03000003'
+          tag: '1.000000'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
