@@ -7,7 +7,7 @@ our $VERSION = '0.03000003';
 
 # ABSTRACT: Time-Relative versioning
 
-# $Id:$
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
