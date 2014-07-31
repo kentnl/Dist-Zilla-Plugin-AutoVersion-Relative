@@ -4,14 +4,14 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 # VERSION
 
-version 0.03000002
+version 0.03000003
 
 # SYNOPSIS
 
 Like all things, time is relative.
 This plugin is to allow you to auto-increment versions based on a relative time point.
 
-It doesn't do it all for you, you can choose, its mostly like [The `AutoVersion` Plugin](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::AutoVersion)
+It doesn't do it all for you, you can choose, its mostly like [The `AutoVersion` Plugin](https://metacpan.org/pod/Dist::Zilla::Plugin::AutoVersion)
 except there's a few more user-visible entities, and a few more visible options.
 
 # CONFIGURATION
@@ -37,7 +37,7 @@ relative to.
     format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
 
 For the list of tuneables and how to use them, see
- ["ATTRIBUTES"](#ATTRIBUTES) and ["DATE ATTRIBUTES"](#DATE ATTRIBUTES)
+ ["ATTRIBUTES"](#attributes) and ["DATE ATTRIBUTES"](#date-attributes)
 
 # FORMATTING
 
@@ -46,7 +46,7 @@ There are a handful of things we inject into the template for you
     # Just to give you an idea, you don't really want to be using this though.
     {{ $major }}.{{ $minor }}{{ days }}{{ hours }}{{ $relative->seconds }}
 
-See ["FORMAT FIELDS"](#FORMAT FIELDS) for the available fields and their use.
+See ["FORMAT FIELDS"](#format-fields) for the available fields and their use.
 
 # WARNING
 
@@ -68,7 +68,7 @@ if you don't,you be cargo cultin' the bad way
 
 ## format = {{ sprintf('%d.%02d%04d%02d', $major, $minor, days, hours) }}
 
-See ["FORMATING"](#FORMATING)
+See ["FORMATING"](#formating)
 
 # DATE ATTRIBUTES
 
@@ -110,19 +110,19 @@ The value set for minor
 
 ## $relative
 
-A [`DateTime::Duration`](http://search.cpan.org/perldoc?DateTime::Duration) object
+A [`DateTime::Duration`](https://metacpan.org/pod/DateTime::Duration) object
 
 ## cldr
 
 ## cldr($ARG)
 
-CLDR for the current time. See ["format\_cldr" in DateTime](http://search.cpan.org/perldoc?DateTime#format\_cldr)
+CLDR for the current time. See ["format\_cldr" in DateTime](https://metacpan.org/pod/DateTime#format_cldr)
 
 ## days
 
-See ["days\_accurate"](#days\_accurate)
+See ["days\_accurate"](#days_accurate)
 
-Used to use the algorithm as used in ["days\_square"](#days\_square) but uses the algorithm  in ["days\_accurate"](#days\_accurate) since 0.03000000
+Used to use the algorithm as used in ["days\_square"](#days_square) but uses the algorithm  in ["days\_accurate"](#days_accurate) since 0.03000000
 
 ## days\_square
 
@@ -179,7 +179,7 @@ Kent Fredric <kentnl@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
