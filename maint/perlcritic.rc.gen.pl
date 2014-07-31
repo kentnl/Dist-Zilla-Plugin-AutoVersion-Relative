@@ -20,7 +20,7 @@ $bundle->configure;
 
 my @stopwords = (
   qw(
-  metadata KiokuDB versioning plugin tuneables cldr CLDR cultin cultin
+    metadata KiokuDB versioning plugin tuneables cldr CLDR cultin cultin
     )
 );
 for my $wordlist (@stopwords) {
