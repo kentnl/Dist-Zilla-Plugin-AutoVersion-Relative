@@ -59,7 +59,7 @@ use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
 
-use Readonly;
+use Readonly qw( Readonly );
 
 Readonly my $MONTHS_IN_YEAR => 12;
 
