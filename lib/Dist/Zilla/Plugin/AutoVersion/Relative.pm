@@ -54,12 +54,12 @@ if you don't,you be cargo cultin' the bad way
 
 =cut
 
-use Moose 1.09;
-use MooseX::Types::Moose qw( :all );
+use Moose 1.09 qw( has around with );
+use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
 
-use Readonly;
+use Readonly qw( Readonly );
 
 Readonly my $MONTHS_IN_YEAR => 12;
 
