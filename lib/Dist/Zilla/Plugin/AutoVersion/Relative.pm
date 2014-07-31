@@ -7,7 +7,7 @@ our $VERSION = '0.03000003';
 
 # ABSTRACT: Time-Relative versioning
 
-# $Id:$
+# AUTHORITY
 
 =head1 SYNOPSIS
 
