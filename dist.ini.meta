@@ -11,6 +11,8 @@ twitter_hash_tags = #cpan #perl
 normal_form = numify
 mantissa    = 6
 bumpversions = 1
+toolkit          = eumm
+toolkit_hardness = soft
 
 ;version_rel_year = 2009
 ;version_rel_month = 08
