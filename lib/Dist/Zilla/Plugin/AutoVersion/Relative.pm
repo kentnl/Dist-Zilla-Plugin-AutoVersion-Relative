@@ -54,7 +54,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Moose 1.09;
+use Moose 1.09 qw( has around );
 use MooseX::Types::Moose qw( :all );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
