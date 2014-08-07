@@ -1,6 +1,13 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Trivial]
+ - Update Test::ReportVersions
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000000, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
+ - test: -3
 
 1.000000 2014-07-31T05:37:28Z
  [00 Major]
@@ -108,9 +115,22 @@
 0.01035617 2010-08-07T05:42:35Z
  - Depend on latest moose and Mx::StrictConstructor to resolve Deprecation problems.
 
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01034313, see misc/*.deps* for details
+ - build: +1
+ - configure: +1
+ - runtime: +8
+ - test: +6
+
 0.01034313 2010-07-25T01:17:26Z
  - Reduced a few dependencies, cleaned surplus T-Deps.
  - Modified docs a little bit.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01027903, see misc/*.deps* for details
+ - build: -8
+ - configure: -1
+ - runtime: -10
 
 0.01027903 2010-05-22T15:24:03Z
  - Moved to @KENTNL, + inc::lib bootstrap

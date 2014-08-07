@@ -1,6 +1,10 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
 1.000001
+ [Removed / test requires]
+ - File::Spec::Functions
+ - List::Util
+ - Scalar::Util
 
 1.000000 2014-07-31T05:37:28Z
  [Added / configure requires]
@@ -69,8 +73,55 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - namespace::autoclean 0.08 → 0.09
 
 0.01035617 2010-08-07T05:42:35Z
+ [Added / build requires]
+ - Module::Build 0.3601
+
+ [Added / configure requires]
+ - Module::Build 0.3601
+
+ [Added / runtime requires]
+ - DateTime 0.50
+ - Dist::Zilla 2.10131
+ - Moose 1.09
+ - MooseX::StrictConstructor 0.10
+ - MooseX::Types::DateTime 0.05
+ - MooseX::Types::Moose
+ - Readonly
+ - namespace::autoclean 0.08
+
+ [Added / test requires]
+ - Dist::Zilla
+ - Dist::Zilla::Plugin::GatherDir
+ - Dist::Zilla::Tester
+ - File::Find
+ - File::Temp
+ - Test::More 0.88
 
 0.01034313 2010-07-25T01:17:26Z
+ [Removed / build requires]
+ - Dist::Zilla
+ - Dist::Zilla::Plugin::GatherDir
+ - Dist::Zilla::Tester
+ - File::Find
+ - Module::Build 0.3601
+ - Test::Kwalitee
+ - Test::More
+ - Test::Perl::Critic
+
+ [Removed / configure requires]
+ - Module::Build 0.3601
+
+ [Removed / runtime requires]
+ - DateTime 0.50
+ - Dist::Zilla 2.10131
+ - Moose 0.89
+ - MooseX::Has::Sugar 0.0404
+ - MooseX::StrictConstructor 0.08
+ - MooseX::Types::DateTime 0.05
+ - MooseX::Types::Moose
+ - Readonly
+ - Test::More
+ - namespace::autoclean 0.08
 
 0.01027903 2010-05-22T15:24:03Z
  [Added / build requires]
