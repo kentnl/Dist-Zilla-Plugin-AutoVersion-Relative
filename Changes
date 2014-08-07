@@ -1,6 +1,9 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.000001 2014-07-31T05:51:10Z
+1.000001 2014-08-07T11:16:19Z
+ [00 Trivial]
+ - Update Test::ReportVersions
+
  [Dependencies::Stats]
  - Dependencies changed since 1.000000, see misc/*.deps* for details
  - develop: (suggests: ↑1)
