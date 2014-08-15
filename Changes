@@ -2,12 +2,20 @@
 
 {{$NEXT}}
  [00 Trivial]
- - Update Test::ReportVersions
+ - no code changes.
+ - tests augmented.
+ - metadata updates
 
  [Dependencies::Stats]
  - Dependencies changed since 1.000000, see misc/*.deps* for details
- - develop: (suggests: ↑1)
+ - develop: +1 (suggests: ↑1)
  - test: -3
+
+ [Metadata]
+ - 1x contributor added.
+
+ [Tests]
+ - Update Test::ReportVersions.
 
 1.000000 2014-07-31T05:37:28Z
  [00 Major]
