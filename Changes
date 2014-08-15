@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.000001 2014-08-15T03:39:19Z
+1.000001 2014-08-15T06:04:55Z
  [00 Trivial]
  - no code changes.
  - tests augmented.
@@ -19,7 +19,7 @@
  - POD rearranged source side to produce less whitespace at the top of generated code.
 
  [Tests]
- - Update Test::ReportVersions.
+ - Update Test::ReportPrereqs
 
 1.000000 2014-07-31T05:37:28Z
  [00 Major]
