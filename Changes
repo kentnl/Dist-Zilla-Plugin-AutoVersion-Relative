@@ -4,7 +4,8 @@
  [00 Trivial]
  - no code changes.
  - tests augmented.
- - metadata updates
+ - metadata updates.
+ - whitespace adjustment.
 
  [Dependencies::Stats]
  - Dependencies changed since 1.000000, see misc/*.deps* for details
@@ -13,6 +14,9 @@
 
  [Metadata]
  - 1x contributor added.
+
+ [Misc]
+ - POD rearranged source side to produce less whitespace at the top of generated code.
 
  [Tests]
  - Update Test::ReportVersions.

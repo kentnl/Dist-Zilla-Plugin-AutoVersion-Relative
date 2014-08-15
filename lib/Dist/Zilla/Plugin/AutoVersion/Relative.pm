@@ -11,49 +11,6 @@ our $VERSION = '1.000001';
 
 # AUTHORITY
 
-=head1 SYNOPSIS
-
-Like all things, time is relative.
-This plugin is to allow you to auto-increment versions based on a relative time point.
-
-It doesn't do it all for you, you can choose, its mostly like L<< The C<AutoVersion> Plugin|Dist::Zilla::Plugin::AutoVersion >>
-except there's a few more user-visible entities, and a few more visible options.
-
-=head1 CONFIGURATION
-
-To configure this, you specify the date that the version is to be
-relative to.
-
-=head2 Serving Suggestion
-
-  [AutoVersion::Relative]
-  major = 1
-  minor = 1
-  year  = 2009 ;  when we did our last major rev
-  month = 08   ;   "           "
-  day   = 23   ;   "           "
-  hour  = 05   ;   "           "
-  minute = 30  ;   "           "
-  second = 00  ;  If you're that picky.
-
-  time_zone = Pacific/Auckland  ;  You really want to set this.
-
-   ; 1.0110012
-  format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
-
-For the list of tuneables and how to use them, see
- L</ATTRIBUTES> and L</DATE ATTRIBUTES>
-
-=cut
-
-=head1 WARNING
-
-If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
-couldn't think of a more sane default. But you're setting that anyway, because
-if you don't,you be cargo cultin' the bad way
-
-=cut
-
 use Moose 1.09 qw( has around with );
 use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
@@ -307,3 +264,45 @@ __PACKAGE__->meta->make_immutable;
 
 1;
 
+=head1 SYNOPSIS
+
+Like all things, time is relative.
+This plugin is to allow you to auto-increment versions based on a relative time point.
+
+It doesn't do it all for you, you can choose, its mostly like L<< The C<AutoVersion> Plugin|Dist::Zilla::Plugin::AutoVersion >>
+except there's a few more user-visible entities, and a few more visible options.
+
+=head1 CONFIGURATION
+
+To configure this, you specify the date that the version is to be
+relative to.
+
+=head2 Serving Suggestion
+
+  [AutoVersion::Relative]
+  major = 1
+  minor = 1
+  year  = 2009 ;  when we did our last major rev
+  month = 08   ;   "           "
+  day   = 23   ;   "           "
+  hour  = 05   ;   "           "
+  minute = 30  ;   "           "
+  second = 00  ;  If you're that picky.
+
+  time_zone = Pacific/Auckland  ;  You really want to set this.
+
+   ; 1.0110012
+  format = {{$major}}.{{sprintf('%02d%04d%02d', $minor, days, hours }}
+
+For the list of tuneables and how to use them, see
+ L</ATTRIBUTES> and L</DATE ATTRIBUTES>
+
+=cut
+
+=head1 WARNING
+
+If you don't specify Y/M/D, it will default to Jan 01, 2000 , because I
+couldn't think of a more sane default. But you're setting that anyway, because
+if you don't,you be cargo cultin' the bad way
+
+=cut
