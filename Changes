@@ -129,10 +129,7 @@
 
  [Dependencies::Stats]
  - Dependencies changed since 0.01034313, see misc/*.deps* for details
- - build: +1
- - configure: +1
- - runtime: +8
- - test: +6
+ - runtime: ↑2 -1
 
 0.01034313 2010-07-25T01:17:26Z
  - Reduced a few dependencies, cleaned surplus T-Deps.
@@ -140,9 +137,9 @@
 
  [Dependencies::Stats]
  - Dependencies changed since 0.01027903, see misc/*.deps* for details
- - build: -8
- - configure: -1
- - runtime: -10
+ - build: -7
+ - runtime: -1
+ - test: +6
 
 0.01027903 2010-05-22T15:24:03Z
  - Moved to @KENTNL, + inc::lib bootstrap
