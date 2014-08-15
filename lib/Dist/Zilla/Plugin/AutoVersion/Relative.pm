@@ -11,49 +11,6 @@ our $VERSION = '1.000001';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 use Moose 1.09 qw( has around with );
 use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
