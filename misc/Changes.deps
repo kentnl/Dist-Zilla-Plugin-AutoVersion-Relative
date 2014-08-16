@@ -1,6 +1,12 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-0.03000003
+1.000001
+ [Removed / test requires]
+ - File::Spec::Functions
+ - List::Util
+ - Scalar::Util
+
+1.000000 2014-07-31T05:37:28Z
  [Added / configure requires]
  - ExtUtils::MakeMaker
 
@@ -67,8 +73,33 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - namespace::autoclean 0.08 → 0.09
 
 0.01035617 2010-08-07T05:42:35Z
+ [Changed / runtime requires]
+ - Moose 0.89 → 1.09
+ - MooseX::StrictConstructor 0.08 → 0.10
+
+ [Removed / runtime requires]
+ - Test::More
 
 0.01034313 2010-07-25T01:17:26Z
+ [Added / test requires]
+ - Dist::Zilla
+ - Dist::Zilla::Plugin::GatherDir
+ - Dist::Zilla::Tester
+ - File::Find
+ - File::Temp
+ - Test::More 0.88
+
+ [Removed / build requires]
+ - Dist::Zilla
+ - Dist::Zilla::Plugin::GatherDir
+ - Dist::Zilla::Tester
+ - File::Find
+ - Test::Kwalitee
+ - Test::More
+ - Test::Perl::Critic
+
+ [Removed / runtime requires]
+ - MooseX::Has::Sugar 0.0404
 
 0.01027903 2010-05-22T15:24:03Z
  [Added / build requires]
