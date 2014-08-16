@@ -5,7 +5,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::Plugin::Git::Contributors 0.006
 
  [Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL 2.016006 → 2.017001
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016006 → 2.017002
 
  [Removed / test requires]
  - File::Spec::Functions
