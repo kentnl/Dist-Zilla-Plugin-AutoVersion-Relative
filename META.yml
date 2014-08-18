@@ -48,7 +48,7 @@ x_BuiltWith:
     DateTime: '1.10'
     Dist::Zilla: '5.020'
     Dist::Zilla::App::Command::bakeini: '0.001002'
-    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.002001'
+    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.002002'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.020'
     Dist::Zilla::Plugin::BumpVersionAfterRelease: '0.002'
@@ -69,7 +69,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Manifest: '5.020'
     Dist::Zilla::Plugin::ManifestSkip: '5.020'
     Dist::Zilla::Plugin::MetaConfig: '5.020'
-    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.001001'
+    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.002000'
     Dist::Zilla::Plugin::MetaJSON: '5.020'
     Dist::Zilla::Plugin::MetaProvides::Package: '2.000004'
     Dist::Zilla::Plugin::MetaTests: '5.020'
@@ -93,7 +93,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::TestRelease: '5.020'
     Dist::Zilla::Plugin::Twitter: '0.025'
     Dist::Zilla::Plugin::UploadToCPAN: '5.020'
-    Dist::Zilla::PluginBundle::Author::KENTNL: '2.018000'
+    Dist::Zilla::PluginBundle::Author::KENTNL: '2.019000'
     Dist::Zilla::Role::TextTemplate: '5.020'
     Dist::Zilla::Role::VersionProvider: '5.020'
     Dist::Zilla::Tester: '5.020'
@@ -171,7 +171,7 @@ x_Dist_Zilla:
               - -i
             uname_call: uname
       name: '@Author::KENTNL/MetaData::BuiltWith'
-      version: '1.001001'
+      version: '1.002000'
     -
       class: Dist::Zilla::Plugin::Git::Contributors
       config:
@@ -403,7 +403,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes
       name: '@Author::KENTNL/Author::KENTNL::RecommendFixes'
-      version: '0.002001'
+      version: '0.002002'
     -
       class: Dist::Zilla::Plugin::ReadmeFromPod
       name: '@Author::KENTNL/ReadmeFromPod'
