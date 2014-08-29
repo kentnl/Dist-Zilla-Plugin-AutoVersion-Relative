@@ -9,6 +9,7 @@ do { my $x = {
                       },
        'develop' => {
                       'requires' => {
+                                      'Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes' => '0.001001',
                                       'Dist::Zilla::Plugin::Authority' => '1.006',
                                       'Dist::Zilla::Plugin::AutoPrereqs' => '0',
                                       'Dist::Zilla::Plugin::BumpVersionAfterRelease' => '0',
@@ -55,26 +56,27 @@ do { my $x = {
                                       'Pod::Coverage::TrustPod' => '0',
                                       'Test::CPAN::Changes' => '0.19',
                                       'Test::CPAN::Meta' => '0',
-                                      'Test::Kwalitee' => '1.12',
+                                      'Test::Kwalitee' => '1.21',
                                       'Test::Pod' => '1.41',
                                       'Test::Pod::Coverage' => '1.08'
                                     },
                       'suggests' => {
-                                      'Dist::Zilla::App::Command::bakeini' => '0.001001',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.017002'
+                                      'Dist::Zilla::App::Command::bakeini' => '0.001002',
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.020000'
                                     }
                     },
        'runtime' => {
                       'requires' => {
+                                      'Const::Fast' => '0',
                                       'DateTime' => '0.50',
                                       'Dist::Zilla' => '2.10131',
                                       'Dist::Zilla::Role::TextTemplate' => '0',
                                       'Dist::Zilla::Role::VersionProvider' => '0',
+                                      'Dist::Zilla::Util::ConfigDumper' => '0.003002',
                                       'Moose' => '1.09',
                                       'MooseX::StrictConstructor' => '0.10',
                                       'MooseX::Types::DateTime' => '0.05',
                                       'MooseX::Types::Moose' => '0',
-                                      'Readonly' => '0',
                                       'namespace::autoclean' => '0.09',
                                       'perl' => '5.008',
                                       'strict' => '0',
@@ -92,8 +94,10 @@ do { my $x = {
                                    'Dist::Zilla' => '2.10131',
                                    'Dist::Zilla::Plugin::GatherDir' => '0',
                                    'Dist::Zilla::Tester' => '0',
+                                   'Dist::Zilla::Util::Test::KENTNL' => '1.003001',
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
+                                   'Test::DZil' => '0',
                                    'Test::More' => '0.89'
                                  }
                  }

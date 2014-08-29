@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 VERSION
-    version 1.000001
+    version 1.001000
 
 SYNOPSIS
     Like all things, time is relative. This plugin is to allow you to

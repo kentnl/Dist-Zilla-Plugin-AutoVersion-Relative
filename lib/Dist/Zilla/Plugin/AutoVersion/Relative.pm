@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
-our $VERSION = '1.000001';
+our $VERSION = '1.001000';
 
 # ABSTRACT: Time-Relative versioning
 
@@ -15,12 +15,13 @@ use Moose 1.09 qw( has around with );
 use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
+use Dist::Zilla::Util::ConfigDumper 0.003002 qw( config_dumper );
 
-use Readonly qw( Readonly );
+use Const::Fast qw( const );
 
-Readonly my $MONTHS_IN_YEAR => 12;
+const my $MONTHS_IN_YEAR => 12;
 
-Readonly my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
+const my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 
@@ -108,14 +109,11 @@ has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build 
 has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 
 if ( __PACKAGE__->can('dump_config') ) {
-  around dump_config => sub {
-    my ( $orig, $self ) = @_;
-    my $config     = $self->$orig();
-    my $thisconfig = {
-      major       => $self->major,
-      minor       => $self->minor,
-      format      => $self->format,
-      relative_to => {
+  around dump_config => config_dumper( __PACKAGE__,
+    qw( major minor format ),
+    sub {
+      my ( $self, $payload ) = @_;
+      $payload->{relative_to} = {
         year      => $self->year,
         month     => $self->month,
         day       => $self->day,
@@ -123,11 +121,9 @@ if ( __PACKAGE__->can('dump_config') ) {
         minute    => $self->minute,
         second    => $self->second,
         time_zone => q{} . $self->time_zone->name,
-      },
-    };
-    $config->{ q{} . __PACKAGE__ } = $thisconfig;
-    return $config;
-  };
+      };
+    },
+  );
 }
 
 
@@ -276,7 +272,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 1.000001
+version 1.001000
 
 =head1 SYNOPSIS
 
