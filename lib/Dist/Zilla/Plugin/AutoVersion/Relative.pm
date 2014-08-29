@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
-our $VERSION = '1.000002';
+our $VERSION = '1.001000';
 
 # ABSTRACT: Time-Relative versioning
 
@@ -122,7 +122,7 @@ if ( __PACKAGE__->can('dump_config') ) {
         second    => $self->second,
         time_zone => q{} . $self->time_zone->name,
       };
-    }
+    },
   );
 }
 
@@ -272,7 +272,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.000002 2014-08-29T15:36:31Z
+1.001000 2014-08-29T15:41:31Z
  [00 Minor]
  - Tests refactored
  - Minor internals changes.

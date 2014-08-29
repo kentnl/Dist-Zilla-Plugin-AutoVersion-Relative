@@ -23,7 +23,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: '1.000002'
+    version: '1.001000'
 requires:
   Const::Fast: '0'
   DateTime: '0.50'
@@ -44,7 +44,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative.git
-version: '1.000002'
+version: '1.001000'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -478,7 +478,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: 1.000002-source
+          tag: 1.001000-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -532,7 +532,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: '0'
-          tag: '1.000002'
+          tag: '1.001000'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
