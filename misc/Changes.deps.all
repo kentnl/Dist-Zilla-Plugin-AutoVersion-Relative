@@ -19,6 +19,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::App::Command::bakeini 0.001001 → 0.001002
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.017002 → 2.020000
 
+ [Removed / runtime requires]
+ - Readonly
+
 1.000001 2014-08-15T21:15:21Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::Contributors 0.006

@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.000002 2014-08-29T15:34:16Z
+1.000002 2014-08-29T15:36:31Z
  [00 Minor]
  - Tests refactored
  - Minor internals changes.
@@ -8,11 +8,12 @@
  [Dependencies::Stats]
  - Dependencies changed since 1.000001, see misc/*.deps* for details
  - develop: +1 ↑1 (suggests: ↑2)
- - runtime: +2
+ - runtime: +2 -1
  - test: +2
 
  [Internals]
  - dump_config now uses Util::ConfigDumper
+ - use Const::Fast instead of Readonly
 
  [Tests]
  - Tests refactored into using DZUTKENTNL::dztest
