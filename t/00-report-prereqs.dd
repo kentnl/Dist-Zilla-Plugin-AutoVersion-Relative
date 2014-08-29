@@ -62,7 +62,7 @@ do { my $x = {
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.001002',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.019000'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.020000'
                                     }
                     },
        'runtime' => {
@@ -93,8 +93,10 @@ do { my $x = {
                                    'Dist::Zilla' => '2.10131',
                                    'Dist::Zilla::Plugin::GatherDir' => '0',
                                    'Dist::Zilla::Tester' => '0',
+                                   'Dist::Zilla::Util::Test::KENTNL' => '1.003001',
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
+                                   'Test::DZil' => '0',
                                    'Test::More' => '0.89'
                                  }
                  }
