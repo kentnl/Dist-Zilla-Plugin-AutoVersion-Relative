@@ -17,11 +17,11 @@ use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
 use Dist::Zilla::Util::ConfigDumper 0.003002 qw( config_dumper );
 
-use Readonly qw( Readonly );
+use Const::Fast qw( const );
 
-Readonly my $MONTHS_IN_YEAR => 12;
+const my $MONTHS_IN_YEAR => 12;
 
-Readonly my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
+const my $DAYS_IN_MONTH => 31;    # This is assumed, makes our years square.
 
 with( 'Dist::Zilla::Role::VersionProvider', 'Dist::Zilla::Role::TextTemplate' );
 

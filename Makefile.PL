@@ -20,6 +20,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::Plugin::AutoVersion::Relative",
   "PREREQ_PM" => {
+    "Const::Fast" => 0,
     "DateTime" => "0.50",
     "Dist::Zilla" => "2.10131",
     "Dist::Zilla::Role::TextTemplate" => 0,
@@ -53,6 +54,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Const::Fast" => 0,
   "DateTime" => "0.50",
   "Dist::Zilla" => "2.10131",
   "Dist::Zilla::Plugin::GatherDir" => 0,

@@ -67,6 +67,7 @@ do { my $x = {
                     },
        'runtime' => {
                       'requires' => {
+                                      'Const::Fast' => '0',
                                       'DateTime' => '0.50',
                                       'Dist::Zilla' => '2.10131',
                                       'Dist::Zilla::Role::TextTemplate' => '0',
