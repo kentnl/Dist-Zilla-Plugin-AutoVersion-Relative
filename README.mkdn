@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 # VERSION
 
-version 1.000002
+version 1.001000
 
 # SYNOPSIS
 

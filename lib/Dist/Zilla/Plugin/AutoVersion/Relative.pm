@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
-our $VERSION = '1.000002';
+our $VERSION = '1.001000';
 
 # ABSTRACT: Time-Relative versioning
 
