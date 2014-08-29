@@ -30,4 +30,3 @@ namespace::autoclean        = 0.09 ; CMOP FAIL
 MooseX::Types::Moose        = 0
 DateTime                    = 0.50
 MooseX::Types::DateTime     = 0.05
-Readonly                    = 0
