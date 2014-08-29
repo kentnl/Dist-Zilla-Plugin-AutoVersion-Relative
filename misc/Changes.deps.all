@@ -5,6 +5,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001
 
  [Added / runtime requires]
+ - Const::Fast
  - Dist::Zilla::Util::ConfigDumper 0.003002
 
  [Added / test requires]

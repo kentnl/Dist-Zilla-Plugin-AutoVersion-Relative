@@ -77,7 +77,6 @@ do { my $x = {
                                       'MooseX::StrictConstructor' => '0.10',
                                       'MooseX::Types::DateTime' => '0.05',
                                       'MooseX::Types::Moose' => '0',
-                                      'Readonly' => '0',
                                       'namespace::autoclean' => '0.09',
                                       'perl' => '5.008',
                                       'strict' => '0',

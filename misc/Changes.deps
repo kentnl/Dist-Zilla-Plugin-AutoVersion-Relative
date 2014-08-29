@@ -2,6 +2,7 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
 
 1.000002
  [Added / runtime requires]
+ - Const::Fast
  - Dist::Zilla::Util::ConfigDumper 0.003002
 
  [Added / test requires]
