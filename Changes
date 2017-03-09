@@ -1,6 +1,14 @@
-﻿Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
+Revision history for Dist-Zilla-Plugin-AutoVersion-Relative
 
-1.001001 2014-08-29T15:50:43Z
+1.001001 2017-03-09T08:27:13Z 9dcebdb
+ - Bugfix: Avoid test failures with -Ddefault_inc_excludes_dot
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.001000, see misc/*.deps* for details
+ - configure: +1 (recommends: ↑1)
+ - develop: +13 ↑4 -3 (recommends: +1, suggests: ↑2)
+ - runtime: (recommends: +1)
+ - test: +1 ↓1 (recommends: +1 ↑1 ↓1)
 
 1.001000 2014-08-29T15:43:44Z
  [00 Minor]
@@ -221,4 +229,3 @@
 
 0.01000104 2009-08-24T04:05:23Z
  - First version.
-
