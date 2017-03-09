@@ -63,6 +63,10 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::Util::ConfigDumper 0.003002
  - utf8
 
+ [Removed / test requires]
+ - Dist::Zilla::Tester
+ - Dist::Zilla::Util::Test::KENTNL 1.003001
+
 1.001000 2014-08-29T15:43:44Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001
