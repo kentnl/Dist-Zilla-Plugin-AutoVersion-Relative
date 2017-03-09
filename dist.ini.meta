@@ -1,13 +1,13 @@
+; vim: syntax=dosini
 name    = Dist-Zilla-Plugin-AutoVersion-Relative
 author  = Kent Fredric <kentnl@cpan.org>
 license = Perl_5
-copyright_holder = Kent Fredric
+copyright_holder = Kent Fredric <kentfredric@gmail.com>
 
 ; [Bootstrap::lib]
 
 [@Author::KENTNL]
-git_versions = 1
-twitter_hash_tags = #cpan #perl
+twitter_extra_hash_tags = #distzilla
 normal_form = numify
 mantissa    = 6
 bumpversions = 1
