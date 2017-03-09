@@ -23,7 +23,7 @@ name: Dist-Zilla-Plugin-AutoVersion-Relative
 provides:
   Dist::Zilla::Plugin::AutoVersion::Relative:
     file: lib/Dist/Zilla/Plugin/AutoVersion/Relative.pm
-    version: '1.001001'
+    version: '1.001002'
 recommends:
   Moose: '2.000'
 requires:
@@ -44,4 +44,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-AutoVersion-Relative.git
-version: '1.001001'
+version: '1.001002'
