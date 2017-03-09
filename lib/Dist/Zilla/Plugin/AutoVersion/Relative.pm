@@ -1,11 +1,10 @@
-use 5.008;    # utf8
+use 5.006;    # our
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Plugin::AutoVersion::Relative;
 
-our $VERSION = '1.001000';
+our $VERSION = '1.001001';
 
 # ABSTRACT: Time-Relative versioning
 
@@ -15,7 +14,6 @@ use Moose 1.09 qw( has around with );
 use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
-use Dist::Zilla::Util::ConfigDumper 0.003002 qw( config_dumper );
 
 use Const::Fast qw( const );
 
@@ -109,21 +107,30 @@ has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build 
 has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 
 if ( __PACKAGE__->can('dump_config') ) {
-  around dump_config => config_dumper( __PACKAGE__,
-    qw( major minor format ),
-    sub {
-      my ( $self, $payload ) = @_;
-      $payload->{relative_to} = {
-        year      => $self->year,
-        month     => $self->month,
-        day       => $self->day,
-        hour      => $self->hour,
-        minute    => $self->minute,
-        second    => $self->second,
-        time_zone => q{} . $self->time_zone->name,
-      };
-    },
-  );
+  around dump_config => sub {
+    my ( $orig, $self, @args ) = @_;
+    my $config = $self->$orig(@args);
+    my $localconf = $config->{ +__PACKAGE__ } = {};
+
+    $localconf->{major}       = $self->major;
+    $localconf->{minor}       = $self->minor;
+    $localconf->{format}      = $self->format;
+    $localconf->{relative_to} = {
+      year      => $self->year,
+      month     => $self->month,
+      day       => $self->day,
+      hour      => $self->hour,
+      minute    => $self->minute,
+      second    => $self->second,
+      time_zone => q{} . $self->time_zone->name,
+    };
+
+    $localconf->{ q[$] . __PACKAGE__ . '::VERSION' } = $VERSION
+      unless __PACKAGE__ eq ref $self;
+
+    return $config;
+
+  };
 }
 
 
@@ -272,7 +279,7 @@ Dist::Zilla::Plugin::AutoVersion::Relative - Time-Relative versioning
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 SYNOPSIS
 
@@ -447,7 +454,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

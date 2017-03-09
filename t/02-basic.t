@@ -4,34 +4,43 @@ use warnings;
 
 use Test::More tests => 6;    # last test to print
 use Dist::Zilla::Plugin::AutoVersion::Relative;
-use Test::DZil qw( simple_ini );
+use Test::DZil qw( simple_ini Builder );
 use Dist::Zilla;
-use Dist::Zilla::Tester;
 use Dist::Zilla::Plugin::GatherDir;
-use Dist::Zilla::Util::Test::KENTNL 1.003001 qw( dztest );
 use DateTime;
 
-my $config = simple_ini('GatherDir');
-my $pn     = 'AutoVersion::Relative';
+my $pn = 'AutoVersion::Relative';
 
-my $test = dztest();
-$test->add_file( 'dist.ini', simple_ini('GatherDir') );
-$test->add_file( 'fake.pm',  q[] );
-is( my $dz = $test->safe_configure, undef, 'Configure OK' );
+my $files = {
+  'source/dist.ini' => simple_ini('GatherDir'),
+  'source/fake.pm'  => q[],
+};
+
+my $zilla = Builder->from_config( { dist_root => 'invalid' }, { add_files => $files } );
+
+sub create_plugin {
+  my ( $name, $args ) = @_;
+  ( 'Dist::Zilla::Plugin::' . $name )->new(
+    zilla       => $zilla,
+    plugin_name => $name,
+    %{$args},
+  );
+}
+pass('Configure OK');
 {
-  my $plug = $test->create_plugin($pn);
+  my $plug = create_plugin($pn);
   like $plug->provide_version, qr/^1.01\d{6}$/, "Defaults";
 }
 {
-  my $plug = $test->create_plugin( $pn, { major => 0, } );
+  my $plug = create_plugin( $pn, { major => 0, } );
   like $plug->provide_version, qr/^0.01\d{6}$/, "Major V";
 }
 {
-  my $plug = $test->create_plugin( $pn, { major => 0, minor => 0, } );
+  my $plug = create_plugin( $pn, { major => 0, minor => 0, } );
   like $plug->provide_version, qr/^0.00\d{6}$/, "Minor V";
 }
 {
-  my $plug = $test->create_plugin( $pn => { major => 0, minor => 0, year => DateTime->now->year } );
+  my $plug = create_plugin( $pn => { major => 0, minor => 0, year => DateTime->now->year } );
 
   $plug->provide_version =~ m/^0.00(\d{4})/;
   my $y = $1;
@@ -55,7 +64,7 @@ is( my $dz = $test->safe_configure, undef, 'Configure OK' );
   # but the actual days since the milestone is 31+29+1 - 5 = 56.
   my $now = DateTime->from_epoch( epoch => 1330560000 );
 
-  my $plug = $test->create_plugin(
+  my $plug = create_plugin(
     $pn => {
       format        => '{{ sprintf("%03u", days) }}',
       year          => 2012,
