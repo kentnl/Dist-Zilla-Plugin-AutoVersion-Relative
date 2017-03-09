@@ -58,7 +58,6 @@
       "Dist::Zilla::Role::TextTemplate" : "6.009",
       "Dist::Zilla::Role::VersionProvider" : "6.009",
       "Dist::Zilla::Tester" : "6.009",
-      "Dist::Zilla::Util::ConfigDumper" : "0.003007",
       "Dist::Zilla::Util::Test::KENTNL" : "1.005013",
       "English" : "1.10",
       "ExtUtils::MakeMaker" : "7.24",
