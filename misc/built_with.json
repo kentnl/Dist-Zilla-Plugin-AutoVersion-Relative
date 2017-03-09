@@ -1,7 +1,4 @@
 {
-   "failures" : {
-      "MooseX::Types::DateTime" : "module was not found in INC"
-   },
    "modules" : {
       "CPAN::Meta" : "2.150010",
       "Const::Fast" : "0.014",
@@ -68,6 +65,7 @@
       "File::Spec" : "3.66",
       "Moose" : "2.2004",
       "MooseX::StrictConstructor" : "0.21",
+      "MooseX::Types::DateTime" : "0.13",
       "MooseX::Types::Moose" : "0.50",
       "Pod::Coverage::TrustPod" : "0.100003",
       "Software::License::Perl_5" : "0.103012",
@@ -82,7 +80,6 @@
       "Test::Pod::Coverage" : "1.10",
       "namespace::autoclean" : "0.28",
       "strict" : "1.11",
-      "utf8" : "1.19",
       "warnings" : "1.37"
    },
    "perl" : {
