@@ -60,6 +60,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::Plugin::ReadmeFromPod
 
  [Removed / runtime requires]
+ - Dist::Zilla::Util::ConfigDumper 0.003002
  - utf8
 
 1.001000 2014-08-29T15:43:44Z

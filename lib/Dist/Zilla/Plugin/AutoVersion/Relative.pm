@@ -14,7 +14,6 @@ use Moose 1.09 qw( has around with );
 use MooseX::Types::Moose qw( Int Str );
 use MooseX::Types::DateTime qw( TimeZone Duration Now );
 use MooseX::StrictConstructor 0.10;
-use Dist::Zilla::Util::ConfigDumper 0.003002 qw( config_dumper );
 
 use Const::Fast qw( const );
 
@@ -108,21 +107,30 @@ has '_current_time' => ( isa => 'DateTime', coerce => 1, is => 'ro', lazy_build 
 has 'relative' => ( isa => Duration, coerce => 1, is => 'ro', lazy_build => 1 );
 
 if ( __PACKAGE__->can('dump_config') ) {
-  around dump_config => config_dumper( __PACKAGE__,
-    qw( major minor format ),
-    sub {
-      my ( $self, $payload ) = @_;
-      $payload->{relative_to} = {
-        year      => $self->year,
-        month     => $self->month,
-        day       => $self->day,
-        hour      => $self->hour,
-        minute    => $self->minute,
-        second    => $self->second,
-        time_zone => q{} . $self->time_zone->name,
-      };
-    },
-  );
+  around dump_config => sub {
+    my ( $orig, $self, @args ) = @_;
+    my $config = $self->$orig(@args);
+    my $localconf = $config->{ +__PACKAGE__ } = {};
+
+    $localconf->{major}       = $self->major;
+    $localconf->{minor}       = $self->minor;
+    $localconf->{format}      = $self->format;
+    $localconf->{relative_to} = {
+      year      => $self->year,
+      month     => $self->month,
+      day       => $self->day,
+      hour      => $self->hour,
+      minute    => $self->minute,
+      second    => $self->second,
+      time_zone => q{} . $self->time_zone->name,
+    };
+
+    $localconf->{ q[$] . __PACKAGE__ . '::VERSION' } = $VERSION
+      unless __PACKAGE__ eq ref $self;
+
+    return $config;
+
+  };
 }
 
 =p_builder _build__release_time
